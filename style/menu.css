@@ -1,0 +1,31 @@
+/* Top Menu */
+#menuTop {
+    background-color: #202020;
+    height: 30px;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+#menuTop .menuTop {
+    height: 100%;
+    display: inline-block;
+    border: 1px lightgreen solid;
+}
+#menuTop .menuTop img {
+    padding-left: 20px;
+}
+#menuTop .menuTop p {
+    color: #8400ff;
+    font-size: large;
+    margin: 0px;
+    padding-top: 5px;
+}
+#menuTop #search {
+    width: 70%;
+    text-align: center;
+}
+
+#menuTop #loginMenu {
+    width: 18%;
+}
