@@ -3,14 +3,14 @@ class MenuTop {
         this.homePath = homePath;
     }
     #setLogoImage() {
-        document.write('<a href="'+this.homePath+'index.html">');  
+        document.write('<a href="'+this.homePath+'index.php">');  
         document.write('<div id="logo">');  
         document.write('<img src="'+this.homePath+'graphics/logo.png">');
         document.write('</div>');
         document.write('</a>');                                   
     }
     #setTitleText() {
-        document.write('<a href="'+this.homePath+'index.html">');    
+        document.write('<a href="'+this.homePath+'index.php">');    
         document.write('<div id="title"><p>Project Cinema<p></div>');
         document.write('</a>');                                   
     }

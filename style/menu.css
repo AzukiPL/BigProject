@@ -94,14 +94,14 @@
     top: 0px;
     height: 100%; /* 100vh = 100% of view height */
     width: 45px;
+    padding-top: 10px;
     background-color: #202020;
-    padding-top: 60px;
-    padding-bottom: 0px;
     border-right: 1px solid #8400ff;
 }
 #menuLeft .menuLeft {
     height: 50px;
     width: 100%;
+    position: sticky;
     background-color: #303030;
     border-bottom: 1px solid #232323;
     display: flex;
@@ -123,4 +123,5 @@
     visibility: visible;
     text-align: center;
     color: #9320ff;
+    white-space: nowrap;
 }
