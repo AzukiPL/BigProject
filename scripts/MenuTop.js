@@ -27,6 +27,7 @@ class MenuTop {
         document.write('<input type="button" value="Login">');
         document.write('</div>');
     }
+
     setMenuTop() {
         document.write('<div id="menuTop" class="noselect">');
         this.#setLogoImage();
@@ -35,5 +36,4 @@ class MenuTop {
         this.#setLoginButton();
         document.write('</div>');
     }
-
 }

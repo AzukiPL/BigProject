@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,10 +10,8 @@
     <script lang="JavaScript" src="scripts/MenuTop.js"></script>
     <script lang="JavaScript" src="scripts/MenuLeft.js"></script>
     <script lang="JavaScript" src="scripts/main.js"></script>
-    
 </head>
 <body>
     <script>addMenu("../BIGPROJECT/");</script>
-
 </body>
 </html>
