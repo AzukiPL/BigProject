@@ -1,31 +1,126 @@
-/* Top Menu */
+/*----------------------------------------------------------- Top Menu -----------------------------------------------------------------------*/
 #menuTop {
     background-color: #202020;
-    height: 30px;
-    width: 100%;
-    position: fixed;
+    height: 60px;
+    width: 100%; /* 100vw = 100% of view width */
+    position: absolute;
     top: 0px;
     left: 0px;
+    border-bottom: 1px solid #8400ff;
 }
-#menuTop .menuTop {
-    height: 100%;
-    display: inline-block;
-    border: 1px lightgreen solid;
+/* Logo */
+#logo {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 60px;
+    height: 60px;
 }
-#menuTop .menuTop img {
-    padding-left: 20px;
-}
-#menuTop .menuTop p {
-    color: #8400ff;
-    font-size: large;
-    margin: 0px;
+#logo img {
+    height: 90%;
     padding-top: 5px;
 }
-#menuTop #search {
-    width: 70%;
+/* title */
+#title {
+    position: absolute;
+    left: 60px;
+    top: 0px;
+    width: 140px;
+    height: 60px;
     text-align: center;
 }
 
-#menuTop #loginMenu {
-    width: 18%;
+#title p {
+    position: relative;
+    top: 25%;
+    color: #8400ff;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* search bar */
+#search {
+    position: absolute;
+    top: 0px;
+    left: 200px;
+    width: 600px;
+    height: 60px;
+    text-align: right;
+}
+#search form {
+    position: relative;
+    top: 25%;
+    height: 25px;
+    max-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+#search form input[type=text], #search form input[type=submit] {
+    height: 100%;
+    border: 1px solid #8400ff;
+    color: #9320ff;
+    background-color: #303030;
+    
+}
+#search form input[type=text]:hover, #search form input[type=submit]:hover {
+    background-color: #232323;
+}
+
+#loginMenu {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 60px;
+    text-align: right;
+}
+
+#loginMenu input[type=button] {
+    position: relative;
+    top: 0;
+    height: 100%;
+    width: 150px;
+    background-color: #303030;
+    border: solid 1px #8400ff;
+    color: #9320ff;
+}
+#loginMenu input[type=button]:hover {
+    background-color: #232323;
+}
+
+/*----------------------------------------------------------- Left Menu -----------------------------------------------------------------------*/
+
+#menuLeft {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    height: 100%; /* 100vh = 100% of view height */
+    width: 45px;
+    background-color: #202020;
+    padding-top: 60px;
+    padding-bottom: 0px;
+    border-right: 1px solid #8400ff;
+}
+#menuLeft .menuLeft {
+    height: 50px;
+    width: 100%;
+    background-color: #303030;
+    border-bottom: 1px solid #232323;
+    display: flex;
+    align-items: center;
+    
+}
+#menuLeft .menuLeft:hover {
+    width: 200px;
+    background-color: #232323;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transition: 0.3s ease-out;
+    cursor: pointer;
+}
+.hide {
+    visibility: hidden;
+}
+.menuLeft:hover > .hide {
+    visibility: visible;
+    text-align: center;
+    color: #9320ff;
 }
