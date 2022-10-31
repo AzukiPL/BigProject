@@ -1,3 +1,21 @@
+:root {
+  --primary-color: #202020;
+  --secondary-color: #303030;
+  --hover-color: #232323;
+  --font-color: #9320ff;
+  --bg-color: #111111;
+  --heading-color: #8400ff;
+}
+
+html[data-theme="light"] {
+  --primary-color: #edd9ff;
+  --secondary-color: #dbb2ff;
+  --hover-color: #f2e4ff;
+  --font-color: #9320ff;
+  --bg-color: #fbf7ff;
+  --heading-color: #8400ff;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -16,10 +34,10 @@
   }
 
 body {
-    background-color: #111111;
+    background-color: var(--bg-color);
     padding-left: 50px;
-    padding-top:  30px;
-    height: 3000px;
+    padding-top:  60px;
+    height: 100vh;
 }
 a {
   text-decoration: none;

@@ -1,12 +1,29 @@
+:root {
+    --primary-color: #202020;
+    --secondary-color: #303030;
+    --hover-color: #232323;
+    --font-color: #9320ff;
+    --bg-color: #111111;
+    --heading-color: #8400ff;
+  }
+  
+  html[data-theme="light"] {
+    --primary-color: #edd9ff;
+    --secondary-color: #dbb2ff;
+    --hover-color: #f2e4ff;
+    --font-color: #9320ff;
+    --bg-color: #fbf7ff;
+    --heading-color: #8400ff;
+  }
 /*----------------------------------------------------------- Top Menu -----------------------------------------------------------------------*/
 #menuTop {
-    background-color: #202020;
+    background-color: var(--primary-color);
     height: 60px;
     width: 100%; /* 100vw = 100% of view width */
     position: absolute;
     top: 0px;
     left: 0px;
-    border-bottom: 1px solid #8400ff;
+    border-bottom: 1px solid var(--heading-color) ;
 }
 /* Logo */
 #logo {
@@ -33,7 +50,7 @@
 #title p {
     position: relative;
     top: 25%;
-    color: #8400ff;
+    color: var(--heading-color);
     font-size: large;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -56,13 +73,13 @@
 }
 #search form input[type=text], #search form input[type=submit] {
     height: 100%;
-    border: 1px solid #8400ff;
-    color: #9320ff;
-    background-color: #303030;
+    border: 1px solid var(--heading-color);
+    color: var(--font-color);
+    background-color: var(--secondary-color);
     
 }
 #search form input[type=text]:hover, #search form input[type=submit]:hover {
-    background-color: #232323;
+    background-color: var(--hover-color);
 }
 
 #loginMenu {
@@ -78,12 +95,12 @@
     top: 0;
     height: 100%;
     width: 150px;
-    background-color: #303030;
-    border: solid 1px #8400ff;
-    color: #9320ff;
+    background-color: var(--secondary-color);
+    border: solid 1px var(--heading-color);
+    color: var(--font-color);
 }
 #loginMenu input[type=button]:hover {
-    background-color: #232323;
+    background-color: var(--hover-color);
 }
 
 /*----------------------------------------------------------- Left Menu -----------------------------------------------------------------------*/
@@ -95,22 +112,21 @@
     height: 100%; /* 100vh = 100% of view height */
     width: 45px;
     padding-top: 10px;
-    background-color: #202020;
-    border-right: 1px solid #8400ff;
+    background-color: var(--primary-color);
+    border-right: 1px solid var(--heading-color);
 }
 #menuLeft .menuLeft {
     height: 50px;
     width: 100%;
     position: sticky;
-    background-color: #303030;
-    border-bottom: 1px solid #232323;
+    background-color: var(--secondary-color);
+    border-bottom: 1px solid var(--hover-color);
     display: flex;
     align-items: center;
-    
 }
 #menuLeft .menuLeft:hover {
     width: 200px;
-    background-color: #232323;
+    background-color: var(--hover-color);
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
     transition: 0.3s ease-out;
@@ -122,6 +138,21 @@
 .menuLeft:hover > .hide {
     visibility: visible;
     text-align: center;
-    color: #9320ff;
+    color: var(--font-color);
     white-space: nowrap;
+}
+
+/*----------------------------------------------------------- Setting Panel -----------------------------------------------------------------------*/
+
+#optionPanel {
+    width: 30%;
+    height: 30%;
+    color: green;
+    background-color: red;
+    position: fixed;
+    left: 33%;
+    top: 10%;
+    width: 400px;
+    height: 500px;
+    visibility: hidden;
 }
