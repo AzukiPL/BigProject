@@ -37,7 +37,6 @@ body {
     background-color: var(--bg-color);
     padding-left: 50px;
     padding-top:  60px;
-    height: 100vh;
 }
 a {
   text-decoration: none;

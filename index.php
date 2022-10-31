@@ -14,12 +14,12 @@
 </head>
 <body>
     <script>addMenu("");</script>
-    <!-- <div class="theme-switch-wrapper">
+    <div class="theme-switch-wrapper">
     <label class="theme-switch" for="checkbox">
     <input type="checkbox" id="checkbox" />
     <div class="slider round"></div>
     </label>
-    <script lang="JavaScript" src="scripts/colorSwitch.js"></script> -->
+    <script lang="JavaScript" src="scripts/colorSwitch.js"></script>
 </div>
 </body>
 </html>

@@ -143,16 +143,27 @@
 }
 
 /*----------------------------------------------------------- Setting Panel -----------------------------------------------------------------------*/
+#optionBackground {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #20202080;
+    visibility: hidden;
+}
+
 
 #optionPanel {
     width: 30%;
     height: 30%;
-    color: green;
-    background-color: red;
+    border: 1px solid var(--heading-color);
+    background-color: var(--primary-color);
     position: fixed;
     left: 33%;
     top: 10%;
     width: 400px;
     height: 500px;
+    padding: 0 0 0 0;
     visibility: hidden;
 }

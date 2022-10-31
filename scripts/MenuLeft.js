@@ -26,7 +26,7 @@ class MenuLeft {
     }
 
     #setSettingButton() {
-        document.write('<div class="menuLeft" onclick="openPanel()">');
+        document.write('<div class="menuLeft" onclick="oPan.openPanel()">');
         document.write('<img src="'+this.homePath+'graphics/setting.png">');
         document.write('<div class="hide"><h3>Setting</h3></div>');
         document.write('</div>');
