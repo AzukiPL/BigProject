@@ -164,6 +164,37 @@
     top: 10%;
     width: 400px;
     height: 500px;
-    padding: 0 0 0 0;
+    padding: 5px 5px 5px 5px;
     visibility: hidden;
+}
+
+#close {
+    position: flex;
+    float: right;
+    width: 20px;
+    height: 20px;
+    color: var(--font-color);
+    cursor: pointer;
+    align-items: center;
+    text-align: center;
+    border: 1px solid var(--heading-color);
+    border-radius: 100%;
+    background-color: var(--secondary-color);
+}
+
+#options {
+    width: 100%;
+    height: 100%;
+    clear: both;
+    color: var(--font-color);
+    padding: 5px 5px 5px 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+}
+
+#options h3 {
+    float: left;
+}
+#themeSwitch {
+
 }

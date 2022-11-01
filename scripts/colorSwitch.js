@@ -1,29 +1,21 @@
-const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-// pobieramy z localStorage theme rodzaj dark/light
-const currentTheme = localStorage.getItem('theme');
+const toggleSwitch = document.getElementById("themeSwitch");  //pobiera elementy o nazwie themeSwitch
+const currentTheme = localStorage.getItem('theme'); //przypisuje wartosc theme z localstorage do zmiennej currentTheme
 
-// jeżeli theme istnieje 
-if (currentTheme) {
-  // ustawiamy data-theme klasę w elemencie html data-theme="light"
-  document.documentElement.setAttribute('data-theme', currentTheme);
+if (currentTheme) { //jezeli current theme posiada wartosc
+  document.documentElement.setAttribute('data-theme', currentTheme); //ustawia data-theme dla CSS o wartosci current theme
 
-  // jeżeli theme jest dark zmieniamy przełącznik a dokładnie checkbox na true
-  if (currentTheme === 'light') {
+  if (currentTheme === 'light') { //jezeli theme = light to ustawia checkboxa z elementu toggleSwitch na true
     toggleSwitch.checked = true;
   }
 }
 
-// funkcja ustawiająca data-theme w zależności od przełącznika
-function switchTheme(event) {
-  if (event.target.checked) {
+function switchTheme() {
+  if (toggleSwitch.checked) { // jezeli pierwszy element toggleSwitch jest zaznaczony to ustawia zmienna data-theme na wartosc light
     document.documentElement.setAttribute('data-theme', 'light');
-    localStorage.setItem('theme', 'light');
+    localStorage.setItem('theme', 'light'); //zmienia wartosc w localstorage dla zmiennej theme na wartosc light
   }
-  else {
+  else { // w innym wypadku na wartosc dark
     document.documentElement.setAttribute('data-theme', 'dark');
-    localStorage.setItem('theme', 'dark');
+    localStorage.setItem('theme', 'dark'); // zmienia wartosc theme na dark
   }
 }
-
-// obserwujemy zdarzenie w naszym przypadku na change uruchamiamy funkcję switchTheme
-toggleSwitch.addEventListener('change', switchTheme, false);

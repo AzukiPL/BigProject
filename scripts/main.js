@@ -1,6 +1,5 @@
 var homePath;
 const oPan = new OptionPanel(homePath);
-
 function addMenu(path) {  
     homePath = path;
     const mLeft= new MenuLeft(homePath);
