@@ -12,30 +12,22 @@
         document.write('<select name="theme" id="themeSwitch">');
         document.write('<option value="dark">Dark</option>');
         document.write('<option value="light">Light</option>');
-        document.write('<option value="dark contrast">dark contrast</option>');
-        document.write('<option value="light contrast">light contrast</option>');
+        document.write('<option value="dark-contrast">dark contrast</option>');
+        document.write('<option value="light-contrast">light contrast</option>');
         document.write('</select>');
-        var toggleSwitch = document.getElementById('themeSwitch');
-        var currentTheme = localStorage.getItem('theme');
+        this.toggleSwitch = document.getElementById('themeSwitch');
+        this.currentTheme = localStorage.getItem('theme');
 
-        if(currentTheme)
-            document.documentElement.setAttribute('data-theme', currentTheme);
+        if(this.currentTheme)
+            document.documentElement.setAttribute('data-theme', this.currentTheme);
         
-        if (currentTheme === 'light') {
-            toggleSwitch.value = 'Light';
+        if (this.currentTheme === 'light') {
+            this.toggleSwitch.value = 'Light';
         }
 
         function themeChange () {
-        if (toggleSwitch.value == 'light') { 
-            document.write('jest light');
-          }
-        else if(toggleSwitch.value == 'dark') { 
-            document.write('jest dark');
-          }
-          else { 
-            document.write('jest inny');
-          }
-    }
+            document.write(this.toggleSwitch);
+        }
     </script>
     <button onclick="themeChange()">123</button>
 </body>

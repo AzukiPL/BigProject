@@ -1,16 +1,13 @@
 class OptionPanel {
     constructor (homePath) {
         this.homePath = homePath;
-        this.toggleSelect = document.getElementById('themeSwitch');
+        this.toggleSelect = document.getElementById('themeSelect');
         this.currentTheme = localStorage.getItem('theme');
     }
     #onload() {
         if(this.currentTheme)
-            document.documentElement.setAttribute('data-theme', currentTheme);
+            document.documentElement.setAttribute('data-theme', this.currentTheme);
         
-        if (this.currentTheme === 'light') {
-            this.toggleSelect.value = 'Light';
-        }
     }
     
 
@@ -35,10 +32,12 @@ class OptionPanel {
         document.write('<option value="dark-contrast">dark contrast</option>');
         document.write('<option value="light-contrast">light contrast</option>');
         document.write('</select>');
-        document.write('<button onclick="oPan.themeChange()">set</button>')
+        document.write('<button onclick="oPan.themeChange()">set</button>');
+        this.toggleSelect = document.getElementById('themeSelect');
+        this.currentTheme = localStorage.getItem('theme');
     }
     #themeInstance(name) {
-        if (this.toggleSelect == name) { 
+        if (this.toggleSelect.value == name) { 
             document.documentElement.setAttribute('data-theme', name);
             localStorage.setItem('theme', name); 
         }

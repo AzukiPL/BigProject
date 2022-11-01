@@ -16,6 +16,24 @@ html[data-theme="light"] {
   --heading-color: #8400ff;
 }
 
+html[data-theme="dark-contrast"] {
+  --primary-color: #edd9ff;
+  --secondary-color: #dbb2ff;
+  --hover-color: #f2e4ff;
+  --font-color: #9320ff;
+  --bg-color: #ff0000;
+  --heading-color: #ff0000;
+}
+
+html[data-theme="light-contrast"] {
+  --primary-color: #edd9ff;
+  --secondary-color: #dbb2ff;
+  --hover-color: #f2e4ff;
+  --font-color: #9320ff;
+  --bg-color: #00ff0d;
+  --heading-color: #8400ff;
+}
+
 * {
   margin: 0;
   padding: 0;
