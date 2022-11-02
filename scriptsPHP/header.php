@@ -1,6 +1,6 @@
-<!-- <?php include_once("header.php"); load(""); ?> -->
+<!-- <?php include_once("scriptsPHP/header.php"); load(""); ?> -->
 <?php
-    function load($homePath) {
+    function load($homePath) { //Path From current page folder to Home page folder (FROM CURRENT PAGE FOLDER NOT SCRIPT FOLDER!!)
         echo' <link rel="stylesheet" href="'.$homePath.'style/style.css" >';
         echo '<link rel="stylesheet" href="'.$homePath.'style/menu.css" >';
         echo '<script lang="JavaScript" src="'.$homePath.'scripts/MenuTop.js"></script>';

@@ -3,6 +3,8 @@ class MenuLeft {
         this.homePath = homePath;
     }
     
+    //------------------------------------------------------------- On Load Menu Left create ---------------------------------------------------------------
+
     setMenuLeft() { // creates Left menu and puts all elements on it
         document.write('<div id="menuLeft" class="noselect">');
         this.#setBackTopButton();
@@ -11,6 +13,8 @@ class MenuLeft {
         this.#setSettingButton();
         document.write('</div>');
     }
+
+    //------------------------------------------------------------- Create Elements of menu Left ---------------------------------------------------------------
 
     #setBackTopButton() {
         document.write('<a href ="#">');

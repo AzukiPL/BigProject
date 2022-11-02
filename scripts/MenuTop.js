@@ -2,7 +2,9 @@ class MenuTop {
     constructor (homePath) {
         this.homePath = homePath;
     }
-    
+
+    //------------------------------------------------------------- On Load Menu Top create ---------------------------------------------------------------
+
     setMenuTop() { // creates top menu and put all elements on it
         document.write('<div id="menuTop" class="noselect">');
         this.#setLogoImage();
@@ -11,6 +13,8 @@ class MenuTop {
         this.#setLoginButton();
         document.write('</div>');
     }
+
+    //------------------------------------------------------------- Create Elements of Menu Top ---------------------------------------------------------------
 
     #setLogoImage() {
         document.write('<a href="'+this.homePath+'index.php">');  
