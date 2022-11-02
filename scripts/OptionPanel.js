@@ -1,6 +1,5 @@
 class OptionPanel {
-    constructor (homePath) {
-        this.homePath = homePath;
+    constructor () {
 
         this.toggleSelect = document.getElementById('themeSelect');
         this.currentTheme = localStorage.getItem('theme');

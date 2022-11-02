@@ -1,6 +1,6 @@
-var homePath;
-const oPan = new OptionPanel(homePath);
-function addMenu(path) {  
+var homePath; // Global Variable of home folder path from current page folder
+const oPan = new OptionPanel();
+function addMenu(path) {
     homePath = path;
     const mLeft= new MenuLeft(homePath);
     const mTop = new MenuTop(homePath);
