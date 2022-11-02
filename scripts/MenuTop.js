@@ -2,6 +2,16 @@ class MenuTop {
     constructor (homePath) {
         this.homePath = homePath;
     }
+    
+    setMenuTop() { // creates top menu and put all elements on it
+        document.write('<div id="menuTop" class="noselect">');
+        this.#setLogoImage();
+        this.#setTitleText();
+        this.#setSearchBar();
+        this.#setLoginButton();
+        document.write('</div>');
+    }
+
     #setLogoImage() {
         document.write('<a href="'+this.homePath+'index.php">');  
         document.write('<div id="logo">');  
@@ -28,12 +38,5 @@ class MenuTop {
         document.write('</div>');
     }
 
-    setMenuTop() {
-        document.write('<div id="menuTop" class="noselect">');
-        this.#setLogoImage();
-        this.#setTitleText();
-        this.#setSearchBar();
-        this.#setLoginButton();
-        document.write('</div>');
-    }
+
 }

@@ -6,33 +6,6 @@
     --bg-color: #111111;
     --heading-color: #8400ff;
   }
-  
-  html[data-theme="light"] {
-    --primary-color: #edd9ff;
-    --secondary-color: #dbb2ff;
-    --hover-color: #f2e4ff;
-    --font-color: #9320ff;
-    --bg-color: #fbf7ff;
-    --heading-color: #8400ff;
-  }
-
-  html[data-theme="dark-contrast"] {
-    --primary-color: #edd9ff;
-    --secondary-color: #dbb2ff;
-    --hover-color: #f2e4ff;
-    --font-color: #9320ff;
-    --bg-color: #ff0000;
-    --heading-color: #ff0000;
-  }
-
-  html[data-theme="light-contrast"] {
-    --primary-color: #edd9ff;
-    --secondary-color: #dbb2ff;
-    --hover-color: #f2e4ff;
-    --font-color: #9320ff;
-    --bg-color: #00ff0d;
-    --heading-color: #8400ff;
-  }
 /*----------------------------------------------------------- Top Menu -----------------------------------------------------------------------*/
 #menuTop {
     background-color: var(--primary-color);
@@ -160,7 +133,7 @@
     white-space: nowrap;
 }
 
-/*----------------------------------------------------------- Setting Panel -----------------------------------------------------------------------*/
+/*----------------------------------------------------------- Option Panel -----------------------------------------------------------------------*/
 #optionBackground {
     width: 100%;
     height: 100%;
@@ -186,7 +159,7 @@
     visibility: hidden;
 }
 
-#close {
+#optionPanel #close {
     position: flex;
     float: right;
     width: 20px;
@@ -200,7 +173,7 @@
     background-color: var(--secondary-color);
 }
 
-#options {
+#optionPanel #options {
     width: 100%;
     height: 100%;
     clear: both;
@@ -210,6 +183,42 @@
     text-align: left;
 }
 
-#options h3 {
+#optionPanel #options h3 {
+    font-size: var(--font-size);
+    margin-top: 10px;
+    clear: both;
     float: left;
+}
+
+#optionPanel #themeSelect {
+    margin-top: 10px;
+    margin-left: 10px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--heading-color);
+    color: var(--font-color);
+    height: 30px;
+    width: 90px;
+}
+#optionPanel #FontSizeSelect {
+    margin-top: 10px;
+    margin-left: 10px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--heading-color);
+    color: var(--font-color);
+    height: 30px;
+    width: 90px;
+}
+
+#optionPanel #saveButton {
+    clear: both;
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--heading-color);
+    color: var(--font-color);
+    height: 30px;
+    width: 200px;
+    border-radius: 20px;
+    cursor: pointer;
 }

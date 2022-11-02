@@ -2,6 +2,16 @@ class MenuLeft {
     constructor (homePath) {
         this.homePath = homePath;
     }
+    
+    setMenuLeft() { // creates Left menu and puts all elements on it
+        document.write('<div id="menuLeft" class="noselect">');
+        this.#setBackTopButton();
+        this.#setHomeButton();
+        this.#setTicketButton();
+        this.#setSettingButton();
+        document.write('</div>');
+    }
+
     #setBackTopButton() {
         document.write('<a href ="#">');
         document.write('<div class="menuLeft">');
@@ -32,12 +42,5 @@ class MenuLeft {
         document.write('</div>');
     }
 
-    setMenuLeft() {
-        document.write('<div id="menuLeft" class="noselect">');
-        this.#setBackTopButton();
-        this.#setHomeButton();
-        this.#setTicketButton();
-        this.#setSettingButton();
-        document.write('</div>');
-    }
+
 }
