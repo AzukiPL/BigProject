@@ -9,6 +9,7 @@ class MenuLeft {
         document.write('<div id="menuLeft" class="noselect">');
         this.#setBackTopButton();
         this.#setHomeButton();
+        this.#setRepertoireButton();
         this.#setTicketButton();
         this.#setSettingButton();
         document.write('</div>');
@@ -28,6 +29,13 @@ class MenuLeft {
         document.write('<div class="menuLeft">');
         document.write('<img src="'+this.homePath+'graphics/home.png">');
         document.write('<div class="hide"><h3>Home</h3></div>');
+        document.write('</div></a>');
+    }
+    #setRepertoireButton() {
+        document.write('<a href ="'+this.homePath+'repertoire/index.php">');
+        document.write('<div class="menuLeft">');
+        document.write('<img src="'+this.homePath+'graphics/repertoire.png">');
+        document.write('<div class="hide"><h3>Repertoire</h3></div>');
         document.write('</div></a>');
     }
 

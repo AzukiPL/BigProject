@@ -2,10 +2,22 @@
   --primary-color: #202020;
   --secondary-color: #303030;
   --hover-color: #232323;
-  --font-color: #9320ff;
   --bg-color: #111111;
+  /* --font-color: #9320ff; */
+  /* --heading-color: #8400ff; */
+  --font-color: #ff4b4b;
+  --heading-color: #FF0000;
+  --font-size: medium; 
+  --hue-rotate: hue-rotate(95deg);
+}
+html[data-theme="dark-violet"] {
+  --primary-color: #202020;
+  --secondary-color: #303030;
+  --hover-color: #232323;
+  --bg-color: #111111;
+  --font-color: #9320ff;
   --heading-color: #8400ff;
-  --font-size: medium;
+  --hue-rotate: hue-rotate(0deg);
 }
 
 html[data-theme="light"] {
@@ -15,15 +27,16 @@ html[data-theme="light"] {
   --font-color: #9320ff;
   --bg-color: #fbf7ff;
   --heading-color: #8400ff;
+  --hue-rotate: hue-rotate(0deg);
 }
 
 html[data-theme="dark-contrast"] {
-  --primary-color: #0000A3;
-  --secondary-color: #004197;
-  --hover-color: #7F3E71;
-  --font-color: #DF265E;
+  --primary-color: #3b3b3b;
+  --secondary-color: #555555;
+  --hover-color: #454545;
+  --font-color: #9320ff;
   --bg-color: #111111;
-  --heading-color: #DF265E;
+  --heading-color: #8400ff;
 }
 
 html[data-theme="light-contrast"] {
@@ -64,8 +77,7 @@ html[data-size="large"] {
 
 body {
     background-color: var(--bg-color);
-    padding-left: 50px;
-    padding-top:  60px;
+    padding: 80PX 20PX 20PX 65px;
 }
 a {
   text-decoration: none;

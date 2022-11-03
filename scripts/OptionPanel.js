@@ -10,7 +10,7 @@ class OptionPanel {
 
     //------------------------------------------------------------- On Load Panel create ---------------------------------------------------------------
 
-    #onload() { // on load check if theme is declared, to set correct theme on load
+    #onload() { // on load check if theme and size are declared, to set correct theme on load
         if(this.currentTheme)
             document.documentElement.setAttribute('data-theme', this.currentTheme); 
         if(this.currentSize)
@@ -20,6 +20,7 @@ class OptionPanel {
         document.write('<div id="optionBackground" onclick="oPan.closePanel()"></div>');
         document.write('<div id="optionPanel" class="noselect">');
         this.#onload();
+        this.#setHeaderText();
         this.#setCloseButton(); 
         document.write('<div id="options">');
         this.#setThemeSelect();
@@ -29,7 +30,11 @@ class OptionPanel {
         document.write('</div>'); //optionPanel
     }
 
-    //------------------------------------------------------------- Close Button ---------------------------------------------------------------
+    //-------------------------------------------------------------Header & Close Button ---------------------------------------------------------------
+
+    #setHeaderText() {
+        document.write('<h2>Accesibility</h2>');
+    }
 
     #setCloseButton() { // creates close button to close window
         document.write('<div id="close" onclick="oPan.closePanel()">X</div>');
@@ -40,7 +45,8 @@ class OptionPanel {
     #setThemeSelect() { // creates Select of theme options
         document.write('<h3>Theme:</h3>');
         document.write('<select name="theme" id="themeSelect">');
-        document.write('<option value="dark">Dark</option>');
+        document.write('<option value="dark-red">Dark-Red</option>');
+        document.write('<option value="dark-violet">Dark-Violet</option>');
         document.write('<option value="light">Light</option>');
         document.write('<option value="dark-contrast">dark contrast</option>');
         document.write('<option value="light-contrast">light contrast</option>');
@@ -48,7 +54,8 @@ class OptionPanel {
     }
     
     saveThemeChange () {
-        this.#themeInstance('dark');
+        this.#themeInstance('dark-red');
+        this.#themeInstance('dark-violet');
         this.#themeInstance('light');
         this.#themeInstance('dark-contrast');
         this.#themeInstance('light-contrast');

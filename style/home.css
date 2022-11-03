@@ -1,0 +1,16 @@
+:root {
+    --primary-color: #202020;
+    --secondary-color: #303030;
+    --hover-color: #232323;
+    --bg-color: #111111;
+    --font-color: #ff4b4b;
+    --heading-color: #FF0000;
+    --font-size: medium; 
+    --hue-rotate: hue-rotate(95deg);
+  }
+
+#HIT {
+    width: 100%;
+    height: 350px;
+    background-color:var(--primary-color);
+}
