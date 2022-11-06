@@ -8,9 +8,184 @@
     --font-size: medium; 
     --hue-rotate: hue-rotate(95deg);
   }
+  
+  /* Position the image container (needed to position the left and right arrows) */
+  .container {
+    position: static;
+    height: 600px;
+    width:inherit;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+    height: 100%;
+    text-align: center;
+  }
+  .sliderTable {
+    height: 600px;
+    width: inherit;
+    border-collapse: collapse;
+  }
+  .sliderTable tr td {
+    background-color: var(--primary-color);
+  }
+  tr .image {
+    width: 1000px;
+    object-fit:cover;
+  }
+  .image img {
+    object-fit: cover;
+  }
 
-#HIT {
+  tr .movieTitle, tr .rating, tr .length, tr .tagContainer {
+    width: 200px;
+    height: 50px;
+    
+  }
+
+
+   tr .description {
+    height:fit-content;
+    padding-top: 10px;
+    vertical-align: top;
+   }
+  
+  /* Add a pointer when hovering over the thumbnail images */
+  .cursor {
+    cursor: pointer;
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    height: 100%;
+    border-radius: 3px 0 0 3px;
+  }
+  .prev {
+    left: 0;
+    height: 100%;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* Container for image text */
+  .caption-container {
+    text-align: center;
+    color: var(--font-color);
+    padding: 2px 15px;
+  }
+  .row {
+    background-color: var(--primary-color);
+    overflow:scroll;
+    white-space: nowrap;
+  }
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Six columns side by side */
+  .column {
+    float: left;
+    width: 238px;
+    height: 119px;
+
+  }
+  .column img {
     width: 100%;
-    height: 350px;
-    background-color:var(--primary-color);
-}
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Add a transparency effect for thumnbail images */
+  .demo {
+    opacity: 0.6;
+  }
+  
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }
+
+  .tag {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--heading-color);
+    border-radius: 20px;
+    margin: 5px;
+    padding: 5px;
+    width: 60px;
+    float: left;
+    color: var(--font-color);
+  }
+  /*----------------------------------------------------------------- Sliders -------------------------------------------------------*/
+  .emptyZone {
+    position: static;
+    height: 130px;
+    width: 100%;
+  }
+  .tagScrollMenu {
+    margin-top: 10px;
+    position: static;
+    width: inherit;
+    height: 180px;
+    background-color: var(--primary-color);
+  }
+
+  .tagName {
+    display: flex;
+    align-items: center;
+    width: inherit;
+    height: 50px;
+    background-color: var(--secondary-color);
+    color: var(--font-color);
+    text-align: left;
+    padding-left: 10px;
+
+  }
+  .tagMovieContainer {
+    overflow: auto;
+    white-space: nowrap;
+    height: fit-content;
+  }
+  .tagMovieContainer table tr td {
+    height: 119px;
+    width: 238px;
+    display: inline-block;
+    
+  }
+  .tagMovieContainer table tr td img{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-self: center;
+  }

@@ -74,6 +74,33 @@ html[data-size="large"] {
               user-select: none; /* Non-prefixed version, currently
                                     supported by Chrome, Edge, Opera and Firefox */
   }
+.select {
+    -webkit-touch-callout:text; /* iOS Safari */
+      -webkit-user-select:text; /* Safari */
+       -khtml-user-select:text; /* Konqueror HTML */
+         -moz-user-select:text; /* Old versions of Firefox */
+          -ms-user-select:text; /* Internet Explorer/Edge */
+              user-select:text; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primary-color); 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background:var(--heading-color); 
+  border-radius: 20px;
+  border: 1px solid var(--secondary-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--font-color); 
+}
 
 body {
     background-color: var(--bg-color);

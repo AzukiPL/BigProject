@@ -130,6 +130,8 @@
     background-color: var(--hover-color);
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    /* border-bottom: 1px solid var(--heading-color); */
+    border-right: 1px solid var(--heading-color);
     transition: 0.3s ease-out;
     cursor: pointer;
 }
