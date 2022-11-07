@@ -24,11 +24,13 @@
   }
   .sliderTable {
     height: 600px;
-    width: inherit;
-    border-collapse: collapse;
+    /* width: inherit;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-collapse: collapse; */
   }
   .sliderTable tr td {
-    background-color: var(--primary-color);
   }
   tr .image {
     width: 1000px;
@@ -41,14 +43,14 @@
   tr .movieTitle, tr .rating, tr .length, tr .tagContainer {
     width: 200px;
     height: 50px;
-    
+    background-color: #202020CC;
   }
-
 
    tr .description {
     height:fit-content;
     padding-top: 10px;
     vertical-align: top;
+    background-color: #202020CC;
    }
   
   /* Add a pointer when hovering over the thumbnail images */
@@ -73,6 +75,7 @@
   .next {
     right: 0;
     height: 100%;
+    width: 100px;
     border-radius: 3px 0 0 3px;
   }
   .prev {

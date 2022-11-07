@@ -16,10 +16,12 @@
         $header->loadSliderSwitch(); 
         echo '<div class="emptyZone"></div>';
         $header->loadScroller("anime");
-        $header->loadScroller("romance");
         $header->loadScroller("action");
-        $header->loadScroller("fantasy");
+        $header->loadScroller("romance");
         $header->loadScroller("horror");
+        $header->loadScroller("historical");
+        $header->loadScroller("sci-fi");
+        $header->loadScroller("fantasy");
     ?>
     <script>addMenu();</script>
     <script> currentSlide(parseInt(Math.random()*5+1));</script>
