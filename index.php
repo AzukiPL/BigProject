@@ -9,6 +9,7 @@
         include_once("scriptsPHP/header.php"); 
         $header = new header(""); 
         $header->load(); 
+        $sesLoad = new SessionLoad("");
     ?>
 </head>
 <body>
@@ -22,8 +23,9 @@
         $header->loadScroller("historical");
         $header->loadScroller("sci-fi");
         $header->loadScroller("fantasy");
+        $sesLoad->onLoad();
     ?>
-    <script>addMenu();</script>
+    <!-- <script>addMenu();</script> -->
     <script> currentSlide(parseInt(Math.random()*5+1));</script>
 </body>
 </html>

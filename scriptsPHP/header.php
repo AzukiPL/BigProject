@@ -13,6 +13,7 @@
             echo '<script lang="JavaScript" src="'.$this->homePath.'scripts/OptionPanel.js"></script>';
             echo '<script lang="JavaScript" src="'.$this->homePath.'scripts/main.js"></script>';
             echo '<script>getData("'.$this->homePath.'");</script>';
+            include_once('sessionLoad.php');
         }
         public function loadSliderSwitch() {
             echo '<script lang="JavaScript" src="'.$this->homePath.'scripts/SliderSwitch.js"></script>';

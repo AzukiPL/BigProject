@@ -5,12 +5,12 @@ class MenuTop {
 
     //------------------------------------------------------------- On Load Menu Top create ---------------------------------------------------------------
 
-    setMenuTop() { // creates top menu and put all elements on it
+    setMenuTop(login) { // creates top menu and put all elements on it
         document.write('<div id="menuTop" class="noselect">');
         this.#setLogoImage();
         this.#setTitleText();
         this.#setSearchBar();
-        this.#setLoginButton();
+        this.#setLoginButton(login);
         document.write('</div>');
     }
 
@@ -36,10 +36,10 @@ class MenuTop {
         document.write('</form>');
         document.write('</div>');
     }
-    #setLoginButton() {
-        document.write('<div id="loginMenu">');  
-        document.write('<input type="button" value="Login">');
-        document.write('</div>');
+    #setLoginButton(login) {
+        document.write('<a href="'+this.homePath+'login/index.php"><div id="loginMenu">');  
+        document.write('<input type="button" value="'+login+'">');
+        document.write('</div></a>');
     }
 
 

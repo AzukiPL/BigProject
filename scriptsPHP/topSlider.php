@@ -32,7 +32,7 @@
             {
                 echo '<div class="mySlides noselect">';
                 echo '<table  style="background-image: url('.$this->homePath.'graphics/movies/'.$row['image'].');  height: 600px;  width: inherit; background-position: center; background-repeat: no-repeat; background-size: cover; border-collapse: collapse; background-size:1350px 650px;" class="sliderTable">';
-                $this->setFirstRowColumns($i, $row['image'], $row['name']);
+                $this->setFirstRowColumns($i, $row['name']);
                 $this->setSecondRowColumns( $row['rates 0-10'], $row['length']);
                 $this->setThirdRowColumns($connect, $row['genres_movie_id']);
                 $this->setMovieDescriptColumn($row['description']);
@@ -45,10 +45,10 @@
         // ------------------------------------------------------------- Top Slider Rows ---------------------------------------------------------------
 
 
-        private function setFirstRowColumns($i, $image, $name) {
+        private function setFirstRowColumns($i, $name) {
             echo '<tr>';
-            $this->setPrievousButtonColumn($i);
-            $this->setMovieImageColumn($image);
+            $this->setPrievousButtonColumn();
+            $this->setMovieImageColumn($i);
             $this->setMovieTitleColumn($name);
             $this->setNextButtonColumn();
             echo '</tr>';
@@ -64,9 +64,8 @@
 
         // ------------------------------------------------------------- Top Slider Prievous & Next Button ---------------------------------------------------------------
 
-        private function setPrievousButtonColumn($i) {
+        private function setPrievousButtonColumn() {
             echo '<td rowspan="6">';
-            echo '<div class="numbertext ">'.$i.' / 6</div>';
             echo '<a class="prev" onclick="plusSlides(-1)">&#10094;</a>';
             echo '</td>';
         }
@@ -77,9 +76,10 @@
 
         // ------------------------------------------------------------- Top Slider Movie Image ---------------------------------------------------------------
 
-        private function setMovieImageColumn($image) {
+        private function setMovieImageColumn($i) {
             echo '<td rowspan="6" class="image">';
             // echo '<img src="'.$this->homePath.'graphics/movies/'.$image.'" width="100%">';
+            echo '<div class="numbertext ">'.$i.' / 6</div>';
             echo '</td>';
         }
 

@@ -85,6 +85,7 @@
     right: 0px;
     height: 60px;
     text-align: right;
+    
 }
 
 #loginMenu input[type=button] {
@@ -98,6 +99,7 @@
 }
 #loginMenu input[type=button]:hover {
     background-color: var(--hover-color);
+    cursor: pointer;
 }
 
 /*----------------------------------------------------------- Left Menu -----------------------------------------------------------------------*/

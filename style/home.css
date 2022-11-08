@@ -23,15 +23,15 @@
     text-align: center;
   }
   .sliderTable {
-    height: 600px;
+    height: 650px;
     /* width: inherit;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     border-collapse: collapse; */
   }
-  .sliderTable tr td {
-  }
+  /* .sliderTable tr td {
+  } */
   tr .image {
     width: 1000px;
     object-fit:cover;

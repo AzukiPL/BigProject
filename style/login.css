@@ -1,0 +1,50 @@
+:root {
+    --primary-color: #202020;
+    --secondary-color: #303030;
+    --hover-color: #232323;
+    --font-color: #9320ff;
+    --bg-color: #111111;
+    --heading-color: #8400ff;
+  }
+
+  .loginForm {
+    position: absolute;
+    left: 40%;
+    right: 40%;
+    align-self: center;
+    width: 20%;
+    min-height: 100px;
+    background-color: var(--primary-color);
+    color: var(--font-color);
+    border: 1px solid var(--heading-color);
+    text-align: center;
+    padding: 10px 10px 10px 10px;
+  }
+  .loginForm form {
+    display: block;
+    width: inherit;
+    height: inherit;
+    text-align: left;
+  }
+  .loginForm form input {
+    height: 100%;
+    border: 1px solid var(--heading-color);
+    color: var(--font-color);
+    background-color: var(--secondary-color);
+  }
+  .loginForm form input:hover {
+    background-color: var(--hover-color);
+  }
+  .loginForm form input[type=submit] {
+    border-radius: 20px;
+    padding: 5px;
+    width: 60px;
+  }
+
+  .loginForm a {
+    color: var(--heading-color);
+    text-decoration: underline;
+  }
+  .loginForm a:hover {
+    color: var(--font-color);
+  }
