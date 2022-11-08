@@ -6,12 +6,11 @@
         }
 
         public function onLoad() {
-            session_start();
-            if($_SESSION['logged_in']) {
-                echo '<script>addMenu("logged");</script>';
+            if(!empty($_SESSION['logged_in'])) {
+                echo '<script>addMenu("Profile",1);</script>';
             }
             else {
-                echo '<script>addMenu("login");</script>';
+                echo '<script>addMenu("Login",0);</script>';
             }
         }
     }

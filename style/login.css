@@ -22,11 +22,12 @@
   }
   .loginForm form {
     display: block;
-    width: inherit;
-    height: inherit;
+    width: 100%;
+    height: 100%;
     text-align: left;
   }
   .loginForm form input {
+    width: 100%;
     height: 100%;
     border: 1px solid var(--heading-color);
     color: var(--font-color);

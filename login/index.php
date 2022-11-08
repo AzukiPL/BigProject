@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Project Cinema</title>
     <link rel="stylesheet" href="../style/login.css">
     <?php 
         include_once("../scriptsPHP/header.php"); 
         $header = new header("../"); 
         $header->load(); 
+        $sesLoad = new SessionLoad("../");
+        session_start();
+        if(isset($_SESSION['logged_in']))
+        {
+            if($_SESSION['logged_in'] != 0)
+            header('location: profile.php');
+        }
     ?>
 </head>
 <body> 
@@ -34,8 +41,6 @@
     </form>
     </div>
 <?php
-
-    session_start();
         if(isset($_POST['login']) && isset($_POST['password']))
         {
             $login = $_POST['login'];
@@ -49,7 +54,7 @@
                 if($login==$row['login'] && $password==$row['password'])
                 {
                     $_SESSION['logged_in']=$row['login'];
-                    header('location: ../index.php');
+                    header('location: profile.php');
                     exit();
                 }
                 else
@@ -59,9 +64,9 @@
                 }
             }
             mysqli_close($connect);
+        
         }
+        $sesLoad->onLoad();
     ?>
-
-    <script>addMenu();</script>
 </body>
 </html>

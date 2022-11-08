@@ -10,6 +10,7 @@
         $header = new header(""); 
         $header->load(); 
         $sesLoad = new SessionLoad("");
+        session_start();
     ?>
 </head>
 <body>

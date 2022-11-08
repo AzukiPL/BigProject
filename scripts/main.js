@@ -5,10 +5,10 @@ function getData(path) {
     homePath = path;
 }
 
-function addMenu(login) {
+function addMenu(login, isLoggedIn) {
     const mLeft= new MenuLeft(homePath);
     const mTop = new MenuTop(homePath);
     mLeft.setMenuLeft();
-    mTop.setMenuTop(login);
+    mTop.setMenuTop(login, isLoggedIn);
     oPan.setOptionPanel();
 }
