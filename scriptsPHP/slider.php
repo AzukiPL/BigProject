@@ -10,7 +10,7 @@
         public function setTagSlide()
         {   
             $connect = mysqli_connect("localhost","ProjectCinema","zaq1@WSX", "projectcinema");
-            $query = mysqli_query($connect, 'SELECT * FROM `movies`, `genres` WHERE `genres`.`genre` = "'.$this->tag.'" AND `movies`.`genres_movie_id`=`genres`.`movie_id` ORDER BY `genres`.`priority` DESC LIMIT 15;');
+            $query = mysqli_query($connect, 'SELECT * FROM `movies`, `genres` WHERE `genres`.`genre` = "'.$this->tag.'" AND `movies`.`id`=`genres`.`movie_id` ORDER BY `genres`.`priority` DESC LIMIT 15;');
             $this->openScrollableMenu();
             $this->loadMoviesFromDB($query);
             $this->closeScrollableMenu();

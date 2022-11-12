@@ -1,0 +1,169 @@
+#repertoire-top {
+    position: relative;
+    text-align: center;
+    overflow: auto;
+    background-color: var(--primary-color);
+    width: 100%;
+    height: 400px;
+}
+
+#repertoire-header {
+    position:relative;
+    overflow:visible;
+    top: 100px;
+    left: 33%;
+    width: 33%;
+    height: 150px;
+    text-align: center;
+    color:  var(--heading-color);
+}
+
+#repertoire-header h1 {
+    font-size: calc(var(--font-size)+500%);
+}
+
+#repertoire-days {
+    position: relative;
+    top: 100px;
+    width: 100%;
+    height: 100px;
+    background-color: var(--secondary-color);
+}
+
+.repertoire-day {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 100%;
+    font-size: calc(var(--font-size)+200%);
+    color: var(--font-color);
+}
+.repertoire-day:hover {
+    background-color: var(--hover-color);
+    cursor: pointer;
+}
+
+.repertoire-day::after {
+    clear: both;
+}
+/* --------------------------------------------------Repertoire Bottom -------------------------------------------- */
+
+#repertoire-bottom {
+    position: relative;
+    top: 50px;
+    width: 100%;
+    background-color: var(--primary-color);
+    min-height: 100px;
+}
+.repertoireList {
+    display: none;
+}
+.repertoire-date {
+    width: 100%;
+    height: 50px;
+    background-color: var(--secondary-color);
+    color: var(--font-color);
+    text-align: center;
+    padding-top: 20px;
+    font-size: calc(var(--font-size)+200%);
+}
+
+.repertoire {
+    width: 100%;
+    height: 500px;
+    margin-top: 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.repertoire-info-background {
+    position: absolute;
+    background-color: var(--more-transparent-color);
+    width: 100%;
+    height: 500px;
+}
+.repertoire-movie-title {
+    background-color: var(--transparent-color);
+    color: var(--font-color);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 33%;
+    border-radius: 50px;
+    border: 1px solid var(--heading-color);
+    text-align: center;
+    position: relative;
+    left: 25px;
+    top: 25px;
+}
+.repertoire-movie-tag {
+    color: var(--font-color);
+    height: 30px;
+    width: 33%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    position: relative;
+    top: 40px;
+    left: 25px;
+}
+
+.repertoire-genre {
+    vertical-align: middle;
+    display: inline-block;
+    min-width: 20%;
+    margin-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+    border: 1px solid var(--heading-color);
+    background-color: var(--transparent-color);
+}
+.repertoire-genre::after {
+    clear: both;
+}
+
+.repertoire-length, .repertoire-time {
+    background-color: var(--transparent-color);
+    color: var(--font-color); 
+    width: 33%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 50px;
+    border: 1px solid var(--heading-color);
+    text-align: center;
+    position: relative;
+    top: 65px;
+    margin-top: 5px;
+    left: 25px;
+}
+
+.buy-tickets {
+    background-color: var(--transparent-color);
+    color: var(--font-color); 
+    width: 10%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 50px;
+    border: 1px solid var(--heading-color);
+    text-align: center;
+    position: relative;
+    top: 100px;
+    margin-top: 5px;
+    left: 25px;
+}
+.repertoire-trailer {
+    width: 700px;
+    float: right;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+}
+.repertoire-trailer video {
+    width: 700px;
+    height: 400px;
+}
+.repertoire-trailer::after {
+    clear: both;
+}

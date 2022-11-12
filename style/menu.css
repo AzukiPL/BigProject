@@ -193,7 +193,7 @@
 #optionBackground {
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     background-color: #20202080;
@@ -202,8 +202,8 @@
 
 
 #optionPanel {
-    width: 30%;
-    height: 30%;
+    width: 33%;
+    height: 33%;
     border: 1px solid var(--heading-color);
     background-color: var(--primary-color);
     position: fixed;

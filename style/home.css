@@ -43,14 +43,19 @@
   tr .movieTitle, tr .rating, tr .length, tr .tagContainer {
     width: 200px;
     height: 50px;
-    background-color: #202020CC;
+    background-color: var(--transparent-color);
+  }
+  .tagContainer {
+    overflow: auto;
+    white-space: nowrap;
+    height: fit-content;
   }
 
    tr .description {
     height:fit-content;
     padding-top: 10px;
     vertical-align: top;
-    background-color: #202020CC;
+    background-color: var(--transparent-color);
    }
   
   /* Add a pointer when hovering over the thumbnail images */
@@ -63,31 +68,26 @@
   .next {
     cursor: pointer;
     width: auto;
-    padding: 16px;
-    margin-top: -50px;
-    color: white;
+    padding: 290px 16px 290px 16px;
+    color: var(--heading-color);
     font-weight: bold;
     font-size: 20px;
     border-radius: 0 3px 3px 0;
+    background-color: var(--transparent-color);
   }
   
   /* Position the "next button" to the right */
   .next {
     right: 0;
-    height: 100%;
-    width: 100px;
-    border-radius: 3px 0 0 3px;
   }
   .prev {
     left: 0;
-    height: 100%;
-    border-radius: 3px 0 0 3px;
   }
   
   /* On hover, add a black background color with a little bit see-through */
   .prev:hover,
   .next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: var(--hover-color);
   }
 
   
@@ -146,7 +146,7 @@
     border-radius: 20px;
     margin: 5px;
     padding: 5px;
-    width: 60px;
+    min-width: 90px;
     float: left;
     color: var(--font-color);
   }
@@ -191,4 +191,8 @@
     height: 100%;
     display: flex;
     align-self: center;
+    opacity: 0.8;
+  }
+  .tagMovieContainer table tr td img:hover {
+    opacity: 1;
   }

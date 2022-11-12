@@ -19,6 +19,7 @@ class MenuTop {
             this.#setSearchBar(); document.write('</td><td width="150px">');
             this.#setLoginButton(login); 
             document.write('</td>');
+            document.write('</tr></table');
         }
         else {
             document.write('<table><tr><td width="50px">');
@@ -28,6 +29,7 @@ class MenuTop {
             document.write('</td><td width="45px">');
             this.#setAccountSetting();
             document.write('</td>');
+            document.write('</tr></table');
         }
     }
 

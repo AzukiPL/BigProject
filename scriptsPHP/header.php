@@ -5,7 +5,8 @@
             $this->homePath = $Path;
         }
 
-        public function load() { //Path From current page folder to Home page folder (FROM CURRENT PAGE FOLDER NOT SCRIPT FOLDER!!)    
+        public function load() { //Path From current page folder to Home page folder (FROM CURRENT PAGE FOLDER NOT SCRIPT FOLDER!!) 
+            session_start();   
             echo' <link rel="stylesheet" href="'.$this->homePath.'style/style.css" >';
             echo '<link rel="stylesheet" href="'.$this->homePath.'style/menu.css" >';
             echo '<script lang="JavaScript" src="'.$this->homePath.'scripts/MenuTop.js"></script>';

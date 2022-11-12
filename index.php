@@ -10,7 +10,6 @@
         $header = new header(""); 
         $header->load(); 
         $sesLoad = new SessionLoad("");
-        session_start();
     ?>
 </head>
 <body>
@@ -22,7 +21,7 @@
         $header->loadScroller("romance");
         $header->loadScroller("horror");
         $header->loadScroller("historical");
-        $header->loadScroller("sci-fi");
+        $header->loadScroller("comedy");
         $header->loadScroller("fantasy");
         $sesLoad->onLoad();
     ?>

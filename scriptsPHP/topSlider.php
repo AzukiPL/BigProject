@@ -17,7 +17,7 @@
 
         private function setSlide() {
             $connect =mysqli_connect("localhost","ProjectCinema","zaq1@WSX","projectcinema");
-            $query = "SELECT * FROM `movies` ORDER BY `movies`.`rates 0-10` DESC LIMIT 6;";
+            $query = "SELECT * FROM `movies` ORDER BY `movies`.`rates` DESC LIMIT 6;";
             $result = mysqli_query($connect,$query);
             $result2 = mysqli_query($connect,$query);
             $this->giveQueryResult($connect,$result);
@@ -33,8 +33,8 @@
                 echo '<div class="mySlides noselect">';
                 echo '<table  style="background-image: url('.$this->homePath.'graphics/movies/'.$row['image'].');  height: 600px;  width: inherit; background-position: center; background-repeat: no-repeat; background-size: cover; border-collapse: collapse; background-size:1350px 650px;" class="sliderTable">';
                 $this->setFirstRowColumns($i, $row['name']);
-                $this->setSecondRowColumns( $row['rates 0-10'], $row['length']);
-                $this->setThirdRowColumns($connect, $row['genres_movie_id']);
+                $this->setSecondRowColumns( $row['rates']/10, $row['length']);
+                $this->setThirdRowColumns($connect, $row['id']);
                 $this->setMovieDescriptColumn($row['description']);
                 echo '</table>';
                 echo '</div>';
@@ -56,9 +56,9 @@
         private function setSecondRowColumns($rating, $length) {
             $this->setRatingAndLength($rating,$length);
         }
-        private function setThirdRowColumns($connect, $genres_movie_id) {
+        private function setThirdRowColumns($connect, $id) {
             echo '<tr> <td colspan="2" class="tagContainer">';
-            $this->selectMovieGenres($connect, $genres_movie_id);
+            $this->selectMovieGenres($connect, $id);
             echo '</td></tr>'; 
         }
 
@@ -121,8 +121,8 @@
         // ------------------------------------------------------------- Top Slider Movie Tags ---------------------------------------------------------------
 
 
-        private function selectMovieGenres($connect, $genres_movie_id) {
-            $query = "SELECT `movies`.`genres_movie_id`, `genres`.`movie_id`, `genres`.`genre` FROM `movies`, `genres` WHERE  `genres`.`movie_id` = $genres_movie_id AND `movies`.`genres_movie_id` = $genres_movie_id ORDER BY `genres`.`priority` DESC LIMIT 5;";
+        private function selectMovieGenres($connect, $id) {
+            $query = "SELECT `movies`.`id`, `genres`.`movie_id`, `genres`.`genre` FROM `movies`, `genres` WHERE  `genres`.`movie_id` = $id AND `movies`.`id` = $id ORDER BY `genres`.`priority` DESC LIMIT 5;";
             $result = mysqli_query($connect, $query);
             while ($row = mysqli_fetch_array($result))
             {

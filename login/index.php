@@ -11,7 +11,6 @@
         $header = new header("../"); 
         $header->load(); 
         $sesLoad = new SessionLoad("../");
-        session_start();
         if(isset($_SESSION['logged_in']))
         {
             if($_SESSION['logged_in'] != 0)
@@ -25,11 +24,11 @@
         <table>
             <tr>
                 <td>login:</td>
-                <td><input type="text" name="login"></td>
+                <td><input type="text" name="login" autocomplete="off"></td>
             </tr>
             <tr>
                 <td>password:</td>
-                <td><input type="password" name="password"></td>
+                <td><input type="password" name="password" autocomplete="off"></td>
             </tr>
             <tr>
                 <td colspan="2"><input type="submit" value="login"></td>
@@ -47,19 +46,21 @@
             $password = $_POST['password'];
 
             $connect = mysqli_connect('localhost','ProjectCinema','zaq1@WSX','projectcinema');
-            $query = "SELECT `users`.`login`, `users`.`password` FROM `users`;";
+            $query = "SELECT `users`.`login`, `users`.`password`, `users`.`permission_level` FROM `users`;";
             $result = mysqli_query($connect, $query);
             while ($row=mysqli_fetch_array($result))
             {
                 if($login==$row['login'] && $password==$row['password'])
                 {
                     $_SESSION['logged_in']=$row['login'];
+                    $_SESSION['permission']=$row['permission_level'];
                     header('location: profile.php');
                     exit();
                 }
                 else
                 {
                     $_SESSION['logged_in']=0;
+                    $_SESSION['permission']=0;
                     header('location: index.php');
                 }
             }
