@@ -26,10 +26,27 @@ body {
     background-color: var(--primary-color);
     padding-left: 45px;
 }
+#adminPanel::after {
+    clear: both;
+}
 
 .panel-button {
     position: relative;
-    width: 20%;
-    height: 100%;
     left: 0px;
+    top: 0px;
+    width: 20%;
+    height: calc(100% - 15px);
+    background-color: var(--secondary-color);
+    color: var(--font-color);
+    padding-top: 15px;
+    text-align: center;
+    overflow:hidden;
+    white-space: nowrap;
+    float: left;
+    border-right: 1px solid var(--heading-color);
 }
+
+.panel-button:hover {
+    background-color:var(--hover-color);
+}
+
