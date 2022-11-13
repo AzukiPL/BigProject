@@ -10,6 +10,13 @@
         $header = new header(""); 
         $header->load(); 
         $sesLoad = new SessionLoad("");
+        if(!isset($_SESSION['logged_in']))
+        {
+            if($_SESSION['logged_in'] != 1)
+            header('location: login/index.php');
+            if($_SESSION['permission'] < 5)
+            header('location: login/profile.php');
+        }
     ?>
 </head>
 <body>
