@@ -130,6 +130,7 @@
     border: none;
     background-color:var(--primary-color);
     color: var(--font-color);
+    font-size: medium;
 }
 .accSetting:hover {
     background-color:var(--hover-color);
