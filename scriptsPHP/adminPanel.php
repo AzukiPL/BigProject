@@ -2,13 +2,13 @@
 <html lang="en">
 <body>
     <div id="adminPanel"">
-    <table>
-        <tr>
-            <td>
+        <?php
+            if($_SESSION['logged_in'] > 7) {
+                echo '<div class="panel-button">';
                 
-            </td>
-        </tr>
-    </table>
+                echo '</div>';
+            }
+        ?>
     </div>
 </body>
 </html>

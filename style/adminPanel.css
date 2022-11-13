@@ -20,11 +20,16 @@ body {
     position: absolute;
     top: 60px;
     left: 0px;
-    width: 100%;
+    width: calc(100% - 45px);
     height: 50px;
     border-bottom: 1px solid var(--heading-color);
     background-color: var(--primary-color);
+    padding-left: 45px;
 }
-#adminPanel table {
-    margin-left: 45px;
+
+.panel-button {
+    position: relative;
+    width: 20%;
+    height: 100%;
+    left: 0px;
 }
