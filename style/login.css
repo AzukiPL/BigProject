@@ -50,3 +50,10 @@
   .loginForm a:hover {
     color: var(--font-color);
   }
+
+  .loginForm form input[type=checkbox] {
+    border: 1px solid var(--heading-color);
+    background-color: var(--secondary-color);
+    height: 15px;
+    width: 15px;
+  }

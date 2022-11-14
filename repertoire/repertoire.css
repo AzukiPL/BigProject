@@ -49,6 +49,9 @@
 .repertoire-day::after {
     clear: both;
 }
+.repertoire-active {
+    background-color: var(--primary-color);
+}
 /* --------------------------------------------------Repertoire Bottom -------------------------------------------- */
 
 #repertoire-bottom {

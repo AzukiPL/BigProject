@@ -1,0 +1,20 @@
+.loginForm {
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    align-self: center;
+    width: 60%;
+    min-height: 500px;
+    background-color: var(--primary-color);
+    color: var(--font-color);
+    border: 1px solid var(--heading-color);
+    text-align: center;
+    padding: 10px 10px 10px 10px;
+  }
+
+.loginForm tr td {
+    width: 120px;
+}
+.addDirector{
+    display:none;
+}
