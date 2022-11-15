@@ -27,8 +27,20 @@
                     case 7: echo "Sunday"; break;
                 }
             }
-
-
+        }
+        private function writeCurrentDay($plusDays) {
+            while(date("w")+$plusDays > 7) {
+                $plusDays -= 7;
+            }
+            switch(date("w")+$plusDays) {
+                case 1: return "Monday"; break;
+                case 2: return "Tuesday"; break;
+                case 3: return "Wednesday"; break;
+                case 4: return "Thursday"; break;
+                case 5: return "Friday"; break;
+                case 6: return "Saturday"; break;
+                case 7: return "Sunday"; break;
+            }
         }
 
         public function setRepertoireList($plusDays) {
@@ -47,11 +59,9 @@
              
             $connect = mysqli_connect("localhost", "ProjectCinema", "zaq1@WSX", "projectcinema");
             $query = 'SELECT * FROM `repertoire`, `movies` WHERE `repertoire`.`date` = "'.$today.'" AND `movies`.id = `repertoire`.`movie_id` ORDER BY `repertoire`.`time`;';
-           
-            // $query = "SELECT * FROM ((`movies` INNER JOIN `genres` ON `genres`.`movie_id` = `movies`.`genres_movie_id`) inner join `repertoire` ON `repertoire`.`date` = '".$today."' AND `movies`.`id` = `repertoire`.`movie_id`) ORDER BY `repertoire`.`time`, `genres`.`priority`;";
             $result = mysqli_query($connect,$query);
            
-            echo '<div class="repertoire-date">'.$today.'</div>';
+            echo '<div class="repertoire-date">'.$this->writeCurrentDay($plusDays).' '.$today.'</div>';
             while ($row = mysqli_fetch_array($result)) {
                 echo '<div class="repertoire" style="background-image:url(../graphics/movies/'.$row['image'].');">';
                 echo '<div class="repertoire-info-background">';

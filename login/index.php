@@ -46,7 +46,7 @@
             $password = $_POST['password'];
 
             $connect = mysqli_connect('localhost','ProjectCinema','zaq1@WSX','projectcinema');
-            $query = "SELECT `users`.`login`, `users`.`password`, `users`.`permission_level` FROM `users`;";
+            $query = "SELECT `users`.`login`, `users`.`password`, `users`.`permission_level`, `users`.`localisation_id` FROM `users`;";
             $result = mysqli_query($connect, $query);
             while ($row=mysqli_fetch_array($result))
             {
@@ -54,6 +54,7 @@
                 {
                     $_SESSION['logged_in']=$row['login'];
                     $_SESSION['permission']=$row['permission_level'];
+                    $_SESSION['cinemaLocalisation'] = $row['localisation_id'];
                     header('location: profile.php');
                     exit();
                 }
@@ -61,6 +62,7 @@
                 {
                     $_SESSION['logged_in']=0;
                     $_SESSION['permission']=0;
+                    $_SESSION['cinemaLocalisation'] = 0;
                     header('location: index.php');
                 }
             }
