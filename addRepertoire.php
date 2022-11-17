@@ -78,11 +78,11 @@
             $z = 0;
             $d = 0;
             while($row=mysqli_fetch_array($result)) {
-                    if($i == 0) {echo'<tr><td colspan="5" class="day-change">'.$scripts->writeCurrentDay($d).' '.$row['date'].'</td><td class="day-change"><a href="addRepertoire.php?repertoireDate='.$row['date'].'">Delete Repertoire Day</a></td></tr>'; $d++;}
+                    if($i == 0) {echo'<tr><td colspan="5" class="day-change">'.$scripts->writeCurrentDay($d).' '.$row['date'].'</td><td class="day-change"><a href="addRepertoire.php?repertoireDate='.$row['date'].'">Delete '.$row['date'].'</a></td></tr>'; $d++;}
                 $date[$i] = $row['date'];
                 
                 if($date[$i] != $date[$z]) {
-                    echo'<tr><td colspan="5" class="day-change">'.$scripts->writeCurrentDay($d).' '.$row['date'].'</td><td class="day-change"><a href="addRepertoire.php?repertoireDate='.$row['date'].'">Delete Repertoire Day</a></td></tr>';
+                    echo'<tr><td colspan="5" class="day-change">'.$scripts->writeCurrentDay($d).' '.$row['date'].'</td><td class="day-change"><a href="addRepertoire.php?repertoireDate='.$row['date'].'">Delete '.$row['date'].'</a></td></tr>';
                     $d++;
                 }
                 $z = $i;
