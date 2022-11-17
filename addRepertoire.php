@@ -10,10 +10,12 @@
     <?php 
         include_once("scriptsPHP/header.php"); 
         include_once("scriptsPHP/addRepertoireScripts.php");
+        include_once("repertoire/scripts.php");
         $header = new header(""); 
         $header->load(); 
         $sesLoad = new SessionLoad("");
         $repertoire = new addRepertoireScripts("");
+        $scripts = new repertoire();
         if(!isset($_SESSION['logged_in']))
         {
             if($_SESSION['logged_in'] != 1)
@@ -60,7 +62,7 @@
             <tr>
                 <td>Room: </td>
                 <td>
-                    <input type="number" name="room" >
+                    <?php $repertoire->readRoomsList($connect); ?>
                 </td>
             </tr>
             <tr>
@@ -69,11 +71,23 @@
         </table>
         <?php
         // read Database records
-            $queryRead = 'SELECT *, `repertoire`.`id` AS "repertoire_id" FROM `repertoire`,`movies` WHERE `repertoire`.`movie_id` = `movies`.`id` AND `repertoire`.`localisation_id` = '.$_SESSION['cinemaLocalisation'].' ORDER BY `repertoire`.`date`,`repertoire`.`time` ASC;';
+            $queryRead = 'SELECT *, `rooms`.`name` AS "room_name", `repertoire`.`id` AS "repertoire_id" FROM `rooms`, `repertoire`,`movies` WHERE `repertoire`.`movie_id` = `movies`.`id` AND `repertoire`.`localisation_id` = '.$_SESSION['cinemaLocalisation'].' AND `rooms`.`id` = `repertoire`.`room_id`  ORDER BY `repertoire`.`date`,`repertoire`.`time` ASC;';
             $result = mysqli_query($connect, $queryRead);
             echo '<table>';
+            $i = 0;
+            $z = 0;
+            $d = 0;
             while($row=mysqli_fetch_array($result)) {
-                echo '<tr><td style="padding-right:10px;">'.$row['name'].'</td><td>'.$row['2d/3d'].'</td><td>'.$row['date'].'</td><td>'.$row['time'].'</td><td>'.$row['room'].'</td><td><a href="addRepertoire.php?repertoireId='.$row['repertoire_id'].'">Delete</td></tr>';
+                    if($i == 0) {echo'<tr><td colspan="5" class="day-change">'.$scripts->writeCurrentDay($d).' '.$row['date'].'</td><td class="day-change"><a href="addRepertoire.php?repertoireDate='.$row['date'].'">Delete Repertoire Day</a></td></tr>'; $d++;}
+                $date[$i] = $row['date'];
+                
+                if($date[$i] != $date[$z]) {
+                    echo'<tr><td colspan="5" class="day-change">'.$scripts->writeCurrentDay($d).' '.$row['date'].'</td><td class="day-change"><a href="addRepertoire.php?repertoireDate='.$row['date'].'">Delete Repertoire Day</a></td></tr>';
+                    $d++;
+                }
+                $z = $i;
+                echo '<tr><td style="padding-right:10px;">'.$row['name'].'</td><td>'.$row['2d/3d'].'</td><td>'.$row['date'].'</td><td>'.$row['time'].'</td><td>'.$row['room_name'].'</td><td><a href="addRepertoire.php?repertoireId='.$row['repertoire_id'].'">Delete</a></td></tr>';
+                $i++;
             }
             echo '</table>';
         ?>

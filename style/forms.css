@@ -1,3 +1,18 @@
+:root {
+  --primary-color: #202020;
+  --secondary-color: #303030;
+  --hover-color: #232323;
+  --bg-color: #111111;
+  /* --font-color: #9320ff; */
+  /* --heading-color: #8400ff; */
+  --font-color: #ff4b4b;
+  --heading-color: #FF0000;
+  --font-size: medium; 
+  --hue-rotate: hue-rotate(95deg);
+  --transparent-color: #202020CC;
+  --more-transparent-color: #20202088;
+
+}
 .loginForm {
     position: absolute;
     left: 20%;
@@ -17,4 +32,11 @@
 }
 .addDirector{
     display:none;
+}
+.day-change {
+    height:40px; 
+    border-top:1px solid var(--heading-color);
+    border-bottom:1px solid var(--heading-color);
+    width: 100%;
+    text-align:center;
 }

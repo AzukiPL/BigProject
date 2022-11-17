@@ -1,0 +1,44 @@
+:root {
+    --primary-color: #202020;
+    --secondary-color: #303030;
+    --hover-color: #232323;
+    --bg-color: #111111;
+    /* --font-color: #9320ff; */
+    /* --heading-color: #8400ff; */
+    --font-color: #ff4b4b;
+    --heading-color: #FF0000;
+    --font-size: medium; 
+    --hue-rotate: hue-rotate(95deg);
+    --transparent-color: #202020CC;
+    --more-transparent-color: #20202088;
+  }
+
+  #panel {
+    position: absolute;
+    width: calc(100% - 90px);
+    height: 600px;
+    background-color: var(--primary-color);
+    border: 1px solid var(--heading-color);
+    padding: 0px;
+  }
+
+  #left-side, #right-side {
+    position: relative;
+    float: left;
+    height: 100%;
+    width: 50%;
+}
+
+#name, #place {
+    position: relative;
+    top: 1%;
+    text-align: center;
+    color: var(--font-color);
+}
+.line {
+        border: 1px solid var(--heading-color);
+}
+#panel::after {
+    clear: both;
+}
+

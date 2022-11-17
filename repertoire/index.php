@@ -30,6 +30,15 @@
             <div class="repertoire-day" onclick="currentSlide(6)"><?php $scripts->setCorrentDay(5); ?></div>
             <div class="repertoire-day" onclick="currentSlide(7)"><?php $scripts->setCorrentDay(6); ?></div>
         </div>
+        <form id="localisation" action="" method="GET">
+            <div class="element">Select Localisation:</div>
+            <div class="element1">
+                <?php $scripts->setSelectLocalisation(); ?>
+            </div>
+            <div class="element1">
+                <input type="submit" value="Select">
+            </div>
+        </form>
     </div>
     <div id="repertoire-bottom">
         <div class="repertoireList" style="display: block;"><?php $scripts->setRepertoireList(0); ?></div>

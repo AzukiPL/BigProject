@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="style/forms.css">
     <script src="scripts/addMovie.js"></script>
     <?php 
+        include_once("scriptsPHP/addMovieScripts.php");
         include_once("scriptsPHP/header.php"); 
         $header = new header(""); 
         $header->load(); 
-        $sesLoad = new SessionLoad("");
+        $sesLoad = new SessionLoad(""); 
         if(!isset($_SESSION['logged_in']))
         {
             if($_SESSION['logged_in'] != 1)
@@ -20,22 +21,14 @@
             if($_SESSION['permission'] < 5)
             header('location: login/profile.php');
         }
+        $movies = new AddMovieScripts("");
 
-        function selectDirector() {
-            $connect = mysqli_connect("localhost","ProjectCinema","zaq1@WSX","projectcinema");
-            $query = 'SELECT * FROM `directors`';
-            $result = mysqli_query($connect, $query);
-            while($row=mysqli_fetch_array($result)) {
-                echo '<option value="'.$row['id'].'">'.$row['name']." ".$row['surname'].'</option>';
-            }
-            mysqli_close($connect);
-        }
 
     ?>
 </head>
 <body>
-<div class="loginForm">
-    <form  action="" method="POST">
+<div class="loginForm"> 
+    <form  action="" method="POST" enctype="multipart/form-data">
         <table>
             <tr>
                 <td>Movie Name: </td>
@@ -62,22 +55,23 @@
                 <td>Director: </td>
                 <td>    
                     <select name="" id="">
-                    <?php selectDirector(); ?>
+                    <?php $movies->selectDirector(); ?>
                     </select>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
-                    <input type="file" id="movie-image" name="movie-image" accept="image/png" required>
+                    <input type="file" name="fileToUpload" id="fileToUpload">
                 </td>
             </tr>
             <tr>
-                <td colspan="2"><input type="submit" value="Add"></td>
+                <td colspan="2"><input type="submit" name="submit" value="submit"></td>
             </tr>
         </table>
     </form>
     </div>
     <?php 
+    $movies->upload();
     if(!empty($_POST['movie-image'])) {
         $movieImg = $_POST['movie-image'];
         echo $movieImg;

@@ -15,10 +15,23 @@
             echo '</select>';
             mysqli_close($connect);
         }
+        function readRoomsList($connect) {
+            $query = "SELECT * FROM `rooms` WHERE `rooms`.`localisation_id` = ".$_SESSION['cinemaLocalisation'].";";
+            $result = mysqli_query($connect,$query);
+            echo '<select name="room">';
+            while($row=mysqli_fetch_array($result)) {
+                echo '<option value='.$row['id'].'>'.$row['name'].'</option>';
+            }
+            echo '</select>';
+        }
         function deleteRecords($connect) {
             if(!empty($_GET['repertoireId'])) {
                 $id = $_GET['repertoireId'];
-                mysqli_query($connect,"DELETE FROM `repertoire` WHERE `repertoire`.`id` = ".$id);
+                mysqli_query($connect,"DELETE FROM `repertoire` WHERE `repertoire`.`id` = $id");
+            }
+            if(!empty($_GET['repertoireDate'])) {
+                $date = $_GET['repertoireDate'];
+                mysqli_query($connect, "DELETE FROM `repertoire` WHERE `repertoire`.`date` = '$date'");
             }
         }
 
@@ -30,7 +43,7 @@
                 $time = $_POST['time'];
                 $localisation = $_SESSION['cinemaLocalisation'];
                 $room = $_POST['room'];
-                $queryInsert = 'INSERT INTO `repertoire` ( `movie_id`, `2d/3d`, `date`, `time`, `localisation_id`, `room`) VALUES ("'.$movie_id.'","'.$type.'","'.$date.'","'.$time.'","'.$localisation.'", "'.$room.'" );';
+                $queryInsert = 'INSERT INTO `repertoire` ( `movie_id`, `2d/3d`, `date`, `time`, `localisation_id`, `room_id`) VALUES ("'.$movie_id.'","'.$type.'","'.$date.'","'.$time.'","'.$localisation.'", "'.$room.'" );';
                 mysqli_query($connect,$queryInsert);
             }
         }
