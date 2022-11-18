@@ -188,7 +188,7 @@
     clear: both;
 }
 
-.repertoire-length, .repertoire-time {
+.repertoire-length {
     background-color: var(--transparent-color);
     color: var(--font-color); 
     width: 33%;
@@ -203,7 +203,7 @@
     left: 25px;
 }
 
-.buy-tickets {
+.repertoire-time {
     background-color: var(--transparent-color);
     color: var(--font-color); 
     width: 10%;
@@ -215,7 +215,13 @@
     position: relative;
     top: 100px;
     margin-top: 5px;
+    margin-left: 10px;
     left: 25px;
+    float: left;
+}
+.repertoire-time:hover {
+    background-color: var(--primary-color);
+    cursor: pointer;
 }
 .repertoire-trailer {
     width: 700px;

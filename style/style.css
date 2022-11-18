@@ -117,3 +117,9 @@ body {
 a {
   text-decoration: none;
 }
+
+input {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--heading-color);
+  color: var(--font-color);
+}

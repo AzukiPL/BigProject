@@ -2,8 +2,7 @@
     class repertoire {
         function __construct()
         {
-            // $today = date("Y-m-d H:i:s"); 
-            
+        
         }
 
         public function setCorrentDay($plusDays=0) {
@@ -74,39 +73,63 @@
                 }
                 $today = date("Y")+$plusYear."-".date("m")+$plusMonths."-".date("d")+$plusDays;
                 $connect = mysqli_connect("localhost", "ProjectCinema", "zaq1@WSX", "projectcinema");
-                $query = 'SELECT * FROM `repertoire`, `movies` WHERE `repertoire`.`date` = "'.$today.'" AND `movies`.`id` = `repertoire`.`movie_id` AND `repertoire`.`localisation_id` = '.$localisation.' ORDER BY `repertoire`.`time`;';
+                $query = 'SELECT DISTINCT `repertoire`.`movie_id` AS "unique_id", `movies`.`image` FROM `repertoire`, `movies` WHERE `repertoire`.`date` = "'.$today.'" AND `movies`.`id` = `repertoire`.`movie_id` AND `repertoire`.`localisation_id` = '.$localisation.' ORDER BY `repertoire`.`time`;';
                 $result = mysqli_query($connect,$query);
                 echo '<div class="repertoire-date">'.$this->writeCurrentDay($plusDays).' '.$today.'</div>';
-                if(!mysqli_fetch_row($result)) { echo '<div class="repertoire-date"> no repertoire planned for this day. </div>';}
+                if(!mysqli_fetch_array($result)) { echo '<div class="repertoire-date"> no repertoire planned for this day. </div>';}
                 else {
                     mysqli_data_seek($result,0);
-                    while ($row = mysqli_fetch_array($result)) {
-                        echo '<div class="repertoire" style="background-image:url(../graphics/movies/'.$row['image'].');">';
-                        echo '<div class="repertoire-info-background">';
-                        echo '<div class="repertoire-movie-title">'.$row['name'].'</div>';
-                        echo '<div class="repertoire-movie-tag">';
-                        $queryGenres = 'SELECT * FROM `movies`,`genres` WHERE `genres`.`movie_id` = '.$row['movie_id'].' AND `movies`.id = '.$row['movie_id'].' ORDER BY `genres`.`priority` DESC LIMIT 4;';
-                        $resultGenres = mysqli_query($connect,$queryGenres);
-                        while ($row2 = mysqli_fetch_array($resultGenres)) {
-                            echo '<div class="repertoire-genre">'.$row2['genre'].'</div>';
-                        }
-                        echo '</div>';
-                        echo '<div class="repertoire-length">'.$row['length'].' minutes</div>'; 
-                        echo '<div class="repertoire-time">'.$row['2d/3d'].' | At: '.$row['time'].'</div>'; 
-                        echo '<form action="tickets/index.php" method="post">' ;
-                        echo '<input type="text" style="display:none;" name="movie-name" value="'.$row['name'].'">';
-                        echo '<input type="text" style="display:none;" name="movie-time" value="'.$row['time'].'">';
-                        echo '<input type="text" style="display:none;" name="localisation" value="'.$localisation.'">';
-                        echo '<input type="submit" class="buy-tickets" value="Buy Tickets">';
-                        echo '</form>';
-                        echo '<div class="repertoire-trailer"><video width="100%" height="100%" controls> <source src="trailers/'.$row['trailer'].'" type="video/mp4"></video></div>';
-                        echo '</div>'; // info background
-                        echo '</div>'; // repertoire
+                    while($row = mysqli_fetch_array($result)) {
+                        $this->setRepertoireRow($connect, $today, $localisation, $row['unique_id']);
                     }
                 }
-                mysqli_close($connect);   
+                mysqli_close($connect); 
             }
         }
+        private function setRepertoireRow($connect, $today, $localisation, $id) {
+            $query = 'SELECT * FROM `repertoire`, `movies` WHERE `repertoire`.`date` = "'.$today.'" AND `movies`.`id` = `repertoire`.`movie_id` AND `repertoire`.`localisation_id` = '.$localisation.' ORDER BY `repertoire`.`time`;';
+            $result = mysqli_query($connect,$query);
+            mysqli_data_seek($result,$id);
+            $row = mysqli_fetch_array($result); 
+            echo '<div class="repertoire" style="background-image:url(../graphics/movies/'.$row['image'].');">';
+            echo '<div class="repertoire-info-background">';
+            $this->setMovieName($row['name']);
+            $this->setGenres($connect,$row['movie_id']);
+            $this->setMovieLength($row['length']);
+            $this->setMovieTime($connect,$row['2d/3d'], $row['movie_id'], $row['date'], $row['localisation_id']);
+            
+            echo '<div class="repertoire-trailer"><video width="100%" height="100%" controls> <source src="trailers/'.$row['trailer'].'" type="video/mp4"></video></div>';
+            echo '</div>';
+            echo '</div>'; // info background
+        } 
+        private function setMovieName($name) {
+            echo '<div class="repertoire-movie-title">'.$name.'</div>';
+        }
+        private function setGenres($connect,$movie_id) {
+            $queryGenres = 'SELECT * FROM `movies`,`genres` WHERE `genres`.`movie_id` = '.$movie_id.' AND `movies`.id = '.$movie_id.' ORDER BY `genres`.`priority` DESC LIMIT 4;';
+            $resultGenres = mysqli_query($connect,$queryGenres);
+            echo '<div class="repertoire-movie-tag">';
+            while ($row2 = mysqli_fetch_array($resultGenres)) {
+                echo '<div class="repertoire-genre">'.$row2['genre'].'</div>';
+            }
+            echo '</div>';
+        }
+        private function setMovieLength($length) {
+            echo '<div class="repertoire-length">'.$length.' minutes</div>'; 
+        }
+        private function setMovieTime($connect,$type, $movie_id, $repertoireDate, $cinemaLocalisation) {
+            $query = "SELECT * FROM `repertoire`, `movies` WHERE `repertoire`.`movie_id` = `movies`.`id` AND `repertoire`.`movie_id` = $movie_id AND `repertoire`.`date` = '$repertoireDate' AND `repertoire`.`localisation_id` = $cinemaLocalisation  ORDER BY `repertoire`.`time` ASC LIMIT 3;";
+            $result = mysqli_query($connect,$query);
+            while($row = mysqli_fetch_array($result)) {
+                echo '<form action="tickets/index.php" method="post">' ;
+                echo '<input type="text" style="display:none; visibility:hidden;" name="movie-name" value="'.$row['name'].'">';
+                echo '<input type="text" style="display:none; visibility:hidden;" name="movie-time" value="'.$row['time'].'">';
+                echo '<input type="text" style="display:none; visibility:hidden;" name="localisation" value="'.$cinemaLocalisation.'">';
+                echo '<input type="submit" class="repertoire-time noselect" value="'.$type.' | At: '.$row['time'].'">'; 
+                echo '</form>';
+            }
+        } 
+
     }
 
 ?>

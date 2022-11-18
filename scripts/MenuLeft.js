@@ -10,7 +10,6 @@ class MenuLeft {
         this.#setBackTopButton();
         this.#setHomeButton();
         this.#setRepertoireButton();
-        this.#setTicketButton();
         this.#setSettingButton();
         document.write('</div>');
     }
@@ -36,14 +35,6 @@ class MenuLeft {
         document.write('<div class="menuLeft">');
         document.write('<img src="'+this.homePath+'graphics/repertoire.png">');
         document.write('<div class="hide"><h3>Repertoire</h3></div>');
-        document.write('</div></a>');
-    }
-
-    #setTicketButton() {
-        document.write('<a href ="'+this.homePath+'tickets/tickets.php">');
-        document.write('<div class="menuLeft">');
-        document.write('<img src="'+this.homePath+'graphics/ticket.png">');
-        document.write('<div class="hide"><h3>Tickets</h3></div>');
         document.write('</div></a>');
     }
 
