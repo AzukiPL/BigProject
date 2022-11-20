@@ -33,32 +33,37 @@
         <div id="left-side">
             <div id="name"><?php echo $movieName; ?></div><br><hr class="line">
             <div id="place"><?php echo "$town $street $local";  ?></div><br><hr class="line">
-            <div id="place"><?php echo $_SESSION['logged_in'];  ?></div><br><hr class="line">
             <form action="reservation.php" method="POST" id="reservation-form">
                 <?php
-                echo '<select name="id" class="hide"><option value= "'.$repertoireId.'" ></option></select>';
-                echo '<select name="movieName" class="hide"><option value= "'.$movieName.'" ></option></select>';
-                echo '<select name="movieTime" class="hide"><option value= "'.$movieTime.'" ></option></select>';
-                echo '<select name="localisation" class="hide"><option value= "'.$localisation.'" ></option></select>';
+                    echo '<select name="id" class="hide"><option value= "'.$repertoireId.'" ></option></select>';
+                    echo '<select name="movieName" class="hide"><option value= "'.$movieName.'" ></option></select>';
+                    echo '<select name="movieTime" class="hide"><option value= "'.$movieTime.'" ></option></select>';
+                    echo '<select name="localisation" class="hide"><option value= "'.$localisation.'" ></option></select>';
                 ?>
                 <table>
                     <tr>
-                        <td>Full-fare (16 PLN):  </td>
-                        <td><input type="number" min="1" max="<?php echo $availableSpace ?>" maxlength="3" name="normalTicket" placeholder="Amount" required></td>
+                        <td>Name:  </td>
+                        <td><input type="text" minlength="5" name="userName" placeholder="Input Name" required></td>
                     </tr>
                     <tr>
-                        <td>Reduced-fare (11 PLN): </td>
-                        <td><input type="number" min="0" max="<?php echo $availableSpace ?>" maxlength="3" name="reducedTicket" placeholder="Amount"></td>
+                        <td>Full-fare (20 PLN):  </td>
+                        <td><input type="number" min="1"  max="<?php echo $availableSpace ?>" maxlength="3" name="normalTicket" placeholder="Input Amount" required></td>
+                    </tr>
+                    <tr>
+                        <td>Reduced-fare (15 PLN): </td>
+                        <td><input type="number" min="0"  max="<?php echo $availableSpace ?>" maxlength="3" name="reducedTicket" placeholder="Input Amount"></td>
                     </tr>
                     <td>Payment Method</td>
                     <td>
                         <select name="payMethod">
                             <option value="online">Pay online</option>
-                            <option value="cinema">Pay at cinema</option>
                         </select>
                     </td>
                     <tr>
                         <td colspan="2"><input type="submit" value="reserve"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Note: without account you are not able to cancel reservation.</td>
                     </tr>
                 </table>
             </form>
@@ -74,5 +79,7 @@
             ?>
         </div>
     </div>
+
+
 </body>
 </html>

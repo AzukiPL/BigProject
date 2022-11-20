@@ -207,8 +207,8 @@
     background-color: var(--transparent-color);
     color: var(--font-color); 
     width: 10%;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     border-radius: 50px;
     border: 1px solid var(--heading-color);
     text-align: center;
@@ -216,7 +216,7 @@
     top: 100px;
     margin-top: 5px;
     margin-left: 10px;
-    left: 25px;
+    left: 30px;
     float: left;
 }
 .repertoire-time:hover {

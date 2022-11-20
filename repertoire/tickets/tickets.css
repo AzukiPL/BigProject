@@ -55,6 +55,19 @@
 
 #reservation-form td input[type=submit] {
   width: 100%;
+  border-radius: 20px;
+}
+.confirmButton {
+  width: 100%;
+  border-radius: 20px;
+}
+#reservation-form td input[type=submit]:hover {
+  background-color: var(--hover-color);
+  cursor: pointer;
+}
+.confirmButton:hover {
+  background-color: var(--hover-color);
+  cursor: pointer;
 }
 
 #panel::after {
