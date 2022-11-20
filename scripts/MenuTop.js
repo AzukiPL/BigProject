@@ -57,7 +57,7 @@ class MenuTop {
     }
     #setAccountSetting() {
             document.write('<div id="accountSettings">');
-            document.write('<a href="'+this.homePath+'login/profile.php"><button class="accSetting hide">Profile</button></a>');
+            document.write('<a href="'+this.homePath+'login/profile.php"><button class="accSetting hide">Ticket</button></a>');
             document.write('<img src="'+this.homePath+'graphics/setting.png">');
             document.write('<a href="'+this.homePath+'login/logout.php"><button class="accSetting hide">Log Out</button></a>');
             document.write('</div>');

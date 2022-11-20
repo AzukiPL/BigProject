@@ -1,0 +1,39 @@
+:root {
+    --primary-color: #202020;
+    --secondary-color: #303030;
+    --hover-color: #232323;
+    --bg-color: #111111;
+    /* --font-color: #9320ff; */
+    /* --heading-color: #8400ff; */
+    --font-color: #ff4b4b;
+    --heading-color: #FF0000;
+    --font-size: medium; 
+    --hue-rotate: hue-rotate(95deg);
+    --transparent-color: #202020CC;
+    --more-transparent-color: #20202088;
+}
+table {
+    border-collapse: collapse;
+    background-color: var(--primary-color);
+}
+
+#tableColumns td {
+    width: 5%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: var(--secondary-color);
+    color: var(--heading-color);
+    border-bottom: 1px solid var(--heading-color);
+    text-align: center;
+}
+
+.tableRecords td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: var(--font-color);
+    text-align: center;
+}
+.tableRecords td a {
+    color: var(--font-color);
+    text-decoration: underline;
+}
