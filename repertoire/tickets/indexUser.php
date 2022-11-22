@@ -60,6 +60,9 @@
                     <tr>
                         <td colspan="2"><input type="submit" value="reserve"></td>
                     </tr>
+                    <tr>
+                        <td colspan="2"><a href="../index.php"><input type="button" value="return"></a></td>
+                    </tr>
                 </table>
             </form>
         </div>

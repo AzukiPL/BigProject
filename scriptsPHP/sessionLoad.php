@@ -8,7 +8,7 @@
         public function onLoad() {
             if(!empty($_SESSION['logged_in'])) {
                 
-                if ($_SESSION['permission'] > 5) {
+                if ($_SESSION['permission'] >= 5) {
                     include_once('adminPanel.php'); 
                     $aPan = new adminPanel($this->homePath);
                     $aPan->loadButtons();

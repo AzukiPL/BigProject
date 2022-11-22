@@ -11,14 +11,10 @@
         $header = new header("../"); 
         $header->load(); 
         $sesLoad = new SessionLoad("../");
+        session_destroy();
+        header('location: index.php');
     ?>
 </head>
 <body>
-    <?php
-        session_destroy();
-    ?>
-    logged out<br>
-    <a href="../index.php">home</a>
-    <?php $sesLoad->onLoad(); ?>
 </body>
 </html>

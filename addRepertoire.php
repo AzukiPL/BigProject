@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Cinema</title>
-    <link rel="stylesheet" href="style/login.css">
     <link rel="stylesheet" href="style/forms.css">
     <?php 
         include_once("scriptsPHP/header.php"); 
@@ -78,11 +77,30 @@
             $z = 0;
             $d = 0;
             while($row=mysqli_fetch_array($result)) {
-                    if($i == 0) {echo'<tr><td colspan="5" class="day-change">'.$scripts->writeCurrentDay($d).' '.$row['date'].'</td><td class="day-change"><a href="addRepertoire.php?repertoireDate='.$row['date'].'">Delete '.$row['date'].'</a></td></tr>'; $d++;}
+                    if($i == 0) {
+                        echo'<tr><td colspan="5" class="day-change">'.$scripts->writeCurrentDay($d).' '.$row['date'].'</td><td class="day-change"><a href="addRepertoire.php?repertoireDate='.$row['date'].'">Delete '.$row['date'].'</a></td></tr>'; 
+                        echo '<tr class="tableRowColumns">';
+                        echo '<td>Name</td>';
+                        echo '<td>Type</td>';
+                        echo '<td>Date</td>';
+                        echo '<td>Time</td>';
+                        echo '<td>Room</td>';
+                        echo '<td>Action</td>';
+                        echo '</tr>';
+                        $d++;
+                    }
                 $date[$i] = $row['date'];
                 
                 if($date[$i] != $date[$z]) {
                     echo'<tr><td colspan="5" class="day-change">'.$scripts->writeCurrentDay($d).' '.$row['date'].'</td><td class="day-change"><a href="addRepertoire.php?repertoireDate='.$row['date'].'">Delete '.$row['date'].'</a></td></tr>';
+                    echo '<tr class="tableRowColumns">';
+                    echo '<td>Name</td>';
+                    echo '<td>Type</td>';
+                    echo '<td>Date</td>';
+                    echo '<td>Time</td>';
+                    echo '<td>Room</td>';
+                    echo '<td>Action</td>';
+                    echo '</tr>';
                     $d++;
                 }
                 $z = $i;

@@ -123,6 +123,7 @@
         private function setMovieTime($connect, $movie_id, $repertoireDate, $cinemaLocalisation) {
             $query = "SELECT *, `movies`.`name` AS 'movie_name', `repertoire`.`id` FROM `repertoire`, `movies`, `rooms` WHERE `repertoire`.`movie_id` = `movies`.`id` AND `repertoire`.`movie_id` = $movie_id AND `repertoire`.`date` = '$repertoireDate' AND `repertoire`.`localisation_id` = $cinemaLocalisation AND `repertoire`.`sold_fares` < `rooms`.`available_space` AND `repertoire`.`room_id` = `rooms`.`id`  ORDER BY `repertoire`.`time` DESC LIMIT 5;";
             $result = mysqli_query($connect,$query);
+            echo '<div class="time"">';
             while($row = mysqli_fetch_array($result)) {
                 echo '<form action="tickets/index.php" method="post">' ;
                 echo '<select style="display:none; visibility:hidden;" name="movie-name"><option value="'.$row['movie_name'].'"></option></select>';
@@ -134,11 +135,9 @@
             }
             $query = "SELECT *, `movies`.`name` AS 'movie_name' FROM `repertoire`, `movies`, `rooms` WHERE `repertoire`.`movie_id` = `movies`.`id` AND `repertoire`.`movie_id` = $movie_id AND `repertoire`.`date` = '$repertoireDate' AND `repertoire`.`localisation_id` = $cinemaLocalisation AND `repertoire`.`sold_fares` >= `rooms`.`available_space` AND `repertoire`.`room_id` = `rooms`.`id`  ORDER BY `repertoire`.`time` DESC LIMIT 5;";
             $result = mysqli_query($connect,$query);
-            echo '<div style="width:100%; clear:both; left:0px; position:relative;">';
+            
             while($row = mysqli_fetch_array($result)) {
-                echo '<form action="tickets/index.php" method="post">' ;
-                echo '<input type="button" class="repertoire-time noselect" style="width:170px;" value="'.$row['time'].' SOLD OUT"></option></select>'; 
-                echo '</form>';
+                echo '<input type="submit" class="repertoire-time noselect" value="'.$row['time'].' SOLD"></option></select>'; 
             }
             echo '</div>';
         } 

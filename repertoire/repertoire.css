@@ -203,21 +203,31 @@
     left: 25px;
 }
 
+
 .repertoire-time {
     background-color: var(--transparent-color);
     color: var(--font-color); 
-    width: 10%;
+    width: 30%;
     padding-top: 15px;
     padding-bottom: 15px;
     border-radius: 50px;
     border: 1px solid var(--heading-color);
     text-align: center;
     position: relative;
-    top: 100px;
     margin-top: 5px;
-    margin-left: 10px;
-    left: 30px;
     float: left;
+    overflow: auto;
+}
+.time {
+    position: relative;
+    top: 100px;
+    left: 30px;
+    width: 30%;
+    height: 200px;
+    overflow: auto;
+}
+.time::after {
+    clear: both;
 }
 .repertoire-time:hover {
     background-color: var(--primary-color);

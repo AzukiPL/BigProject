@@ -16,6 +16,38 @@
             if($_SESSION['logged_in'] != 0)
             header('location: profile.php');
         }
+        function checkLogIn() {
+            if(isset($_POST['login']) && isset($_POST['password']))
+            {
+                $login = $_POST['login'];
+                $password = $_POST['password'];
+    
+                $connect = mysqli_connect('localhost','ProjectCinema','zaq1@WSX','projectcinema');
+                $query = "SELECT `users`.`login`, `users`.`password`, `users`.`permission_level`, `users`.`localisation_id` FROM `users`;";
+                $result = mysqli_query($connect, $query);
+                while ($row=mysqli_fetch_array($result))
+                {
+                    if($login==$row['login'] && $password==$row['password'])
+                    {
+                        $_SESSION['logged_in']=$row['login'];
+                        $_SESSION['permission']=$row['permission_level'];
+                        $_SESSION['cinemaLocalisation'] = $row['localisation_id'];
+                        header('location: profile.php');
+                        exit();
+                    }
+                    else
+                    {
+                        $_SESSION['logged_in']=0;
+                        $_SESSION['permission']=0;
+                        $_SESSION['cinemaLocalisation'] = 0;
+                    }
+                    
+                }
+                echo '<div style="color:red; margin-top:10px;">account with this login or password, does not exist.</div>';
+                mysqli_close($connect);
+            
+            }
+        }
     ?>
 </head>
 <body> 
@@ -37,39 +69,12 @@
                 <td colspan="2"><a href="register.php"><br><br>or register now</a></td>
             </tr>
         </table>
+        
     </form>
+    <?php checkLogIn(); ?>
     </div>
 <?php
-        if(isset($_POST['login']) && isset($_POST['password']))
-        {
-            $login = $_POST['login'];
-            $password = $_POST['password'];
-
-            $connect = mysqli_connect('localhost','ProjectCinema','zaq1@WSX','projectcinema');
-            $query = "SELECT `users`.`login`, `users`.`password`, `users`.`permission_level`, `users`.`localisation_id` FROM `users`;";
-            $result = mysqli_query($connect, $query);
-            while ($row=mysqli_fetch_array($result))
-            {
-                if($login==$row['login'] && $password==$row['password'])
-                {
-                    $_SESSION['logged_in']=$row['login'];
-                    $_SESSION['permission']=$row['permission_level'];
-                    $_SESSION['cinemaLocalisation'] = $row['localisation_id'];
-                    header('location: profile.php');
-                    exit();
-                }
-                else
-                {
-                    $_SESSION['logged_in']=0;
-                    $_SESSION['permission']=0;
-                    $_SESSION['cinemaLocalisation'] = 0;
-                    header('location: index.php');
-                }
-            }
-            mysqli_close($connect);
-        
-        }
-        $sesLoad->onLoad();
+    $sesLoad->onLoad();
     ?>
 </body>
 </html>

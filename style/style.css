@@ -115,11 +115,19 @@ body {
     padding: 80PX 20PX 20PX 65px;
 }
 a {
-  text-decoration: none;
+  color: var(--font-color);
+  text-decoration: underline;
 }
 
 input {
   background-color: var(--secondary-color);
   border: 1px solid var(--heading-color);
   color: var(--font-color);
+}
+
+select {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--heading-color);
+  color: var(--font-color);
+  width: max-content;
 }

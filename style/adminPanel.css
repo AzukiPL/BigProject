@@ -50,3 +50,67 @@ body {
     background-color:var(--hover-color);
 }
 
+/* ------------------------------------------------------------------ Forms ------------------------------------------------------------- */
+
+
+  .loginForm {
+    position: relative;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    min-height: 100px;
+    background-color: var(--primary-color);
+    color: var(--font-color);
+    border: 1px solid var(--heading-color);
+    text-align: center;
+    padding: 20px 20px 20px 20px;
+  }
+  .loginForm form {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .loginForm tr td {
+    text-align: center;
+  }
+  .loginForm form input {
+    width: 100%;
+    height: 100%;
+    margin: 5px 5px 5px 5px;
+    border: 1px solid var(--heading-color);
+    color: var(--font-color);
+    background-color: var(--secondary-color);
+  }
+  .loginForm form input:hover {
+    background-color: var(--hover-color);
+  }
+  .loginForm form input[type=submit] {
+    border-radius: 20px;
+    padding: 5px;
+    width: 100%;
+  }
+
+  .loginForm a {
+    color: var(--heading-color);
+    text-decoration: underline;
+  }
+  .loginForm a:hover {
+    color: var(--font-color);
+  }
+
+  .loginForm form input[type=checkbox] {
+    border: 1px solid var(--heading-color);
+    background-color: var(--secondary-color);
+    height: 15px;
+    width: 15px;
+  }
+  .tableRowColumns td {
+    width: 5%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: var(--heading-color);
+    border-bottom: 1px solid var(--heading-color);
+    text-align: center;
+}

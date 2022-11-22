@@ -63,7 +63,13 @@
                         <td colspan="2"><input type="submit" value="reserve"></td>
                     </tr>
                     <tr>
-                        <td colspan="2">Note: without account you are not able to cancel reservation.</td>
+                        <td colspan="2"><a href="../index.php"><input type="button" value="return"></a></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Note: account allow you to cancel reservation and gives 20% discount.</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><a href="../../login/register.php">You can register here</td>
                     </tr>
                 </table>
             </form>
