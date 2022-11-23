@@ -16,7 +16,41 @@
 #movieBanner {
     width: 100%;
     height: max-content;
-    padding: 10px 10px 10px 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     background-color: var(--primary-color);
     text-align: center;
+}
+#movieName {
+    width: 100%;
+    height: max-content;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: var(--secondary-color);
+    font-size: calc(var(--font-size)+300%);
+    text-align: center;
+}
+#movieInformations {
+    width: 100%;
+    min-height: 100px;
+    height: max-content;
+    text-align: center;
+    background-color: var(--primary-color);
+}
+#movieInformations table {
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    left: 5%;
+    right:5%;
+    width: 90%;
+    border-collapse: collapse;
+    
+}
+#movieInformations tr td {
+    text-align: left;
+    height: 75px;
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: var(--primary-color);
 }

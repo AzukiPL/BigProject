@@ -10,7 +10,7 @@
         public function setTagSlide()
         {   
             $connect = mysqli_connect("localhost","ProjectCinema","zaq1@WSX", "projectcinema");
-            $query = mysqli_query($connect, 'SELECT * FROM `movies`, `genres` WHERE `genres`.`genre` = "'.$this->tag.'" AND `movies`.`id`=`genres`.`movie_id` ORDER BY `genres`.`priority` DESC LIMIT 15;');
+            $query = mysqli_query($connect, 'SELECT *, `movies`.`id` AS "movie-id" FROM `movies`, `genres` WHERE `genres`.`genre` = "'.$this->tag.'" AND `movies`.`id`=`genres`.`movie_id` ORDER BY `genres`.`priority` DESC LIMIT 15;');
             $this->openScrollableMenu();
             $this->loadMoviesFromDB($query);
             $this->closeScrollableMenu();
@@ -29,7 +29,7 @@
         private function loadMoviesFromDB($query) {
                         while($row = mysqli_fetch_array($query))
             {
-                echo '<td><a href="'.$this->homePath.'repertoire/index.php" name="'.$row['name'].'"><img src="'.$this->homePath.'graphics/movies/'.$row['image'].'"></a></td>';
+                echo '<td><a href="'.$this->homePath.'movieCheck/index.php?id='.$row['movie-id'].'" name="'.$row['name'].'"><img src="'.$this->homePath.'graphics/movies/'.$row['image'].'"></a></td>';
             }
         }
 
