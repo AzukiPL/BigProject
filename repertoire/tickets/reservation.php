@@ -57,7 +57,7 @@
         while($row = mysqli_fetch_array($resultinput)) {
             if($movieName == $row['name'] && $repertoireId == $row['repertoire_id']) {
                 $sold = $row['sold_fares'];
-                $query = "INSERT INTO `reservations` (`user_name`, `repertoire_id`, `cost`, `full-fare-amount`, `reduced-fare-amount`, `isAccount`, `pay_method`) VALUES ('".$user."', '".$row['repertoire_id']."', '".$cost."', '".$fullFare."', '".$reducedFare."', '".$logValue."', '".$payMethod."');";
+                $query = "INSERT INTO `reservations` (`user_name`, `repertoire_id`, `cost`, `full-fare-amount`, `reduced-fare-amount`, `isAccount`, `pay_method`, `reservation_date`) VALUES ('".$user."', '".$row['repertoire_id']."', '".$cost."', '".$fullFare."', '".$reducedFare."', '".$logValue."', '".$payMethod."', '".date("Y-m-d")."');";
                 $result = mysqli_query($connect,$query);
                 $query = "UPDATE `repertoire` SET `sold_fares` = '".$sold+$fullFare+$reducedFare."' WHERE `repertoire`.`id` = '$repertoireId';";
                 $result = mysqli_query($connect,$query);

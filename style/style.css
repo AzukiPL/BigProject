@@ -113,6 +113,7 @@ html[data-size="large"] {
 body {
     background-color: var(--bg-color);
     padding: 80PX 20PX 20PX 65px;
+    color: var(--font-color);
 }
 a {
   color: var(--font-color);

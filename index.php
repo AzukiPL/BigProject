@@ -26,6 +26,6 @@
         $sesLoad->onLoad();
     ?>
     <!-- <script>addMenu();</script> -->
-    <script> currentSlide(parseInt(Math.random()*5+1));</script>
+    <script> currentSlide(parseInt(Math.random()*5+1)); starttimeout();</script>
 </body>
 </html>

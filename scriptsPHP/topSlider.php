@@ -27,18 +27,16 @@
         // ------------------------------------------------------------- Top Slider Query Result ---------------------------------------------------------------
 
         private function giveQueryResult($connect, $result) {
-            $i = 1;
             while ($row = mysqli_fetch_array($result))
             {
                 echo '<div class="mySlides noselect">';
                 echo '<table  style="background-image: url('.$this->homePath.'graphics/movies/'.$row['image'].');  height: 600px;  width: inherit; background-position: center; background-repeat: no-repeat; background-size: cover; border-collapse: collapse; background-size:1350px 650px;" class="sliderTable">';
-                $this->setFirstRowColumns($i, $row['name']);
+                $this->setFirstRowColumns($row['id'], $row['name']);
                 $this->setSecondRowColumns( $row['rates']/10, $row['length']);
                 $this->setThirdRowColumns($connect, $row['id']);
                 $this->setMovieDescriptColumn($row['description']);
                 echo '</table>';
                 echo '</div>';
-                $i++;
             }
         }
 
@@ -78,8 +76,9 @@
 
         private function setMovieImageColumn($i) {
             echo '<td rowspan="6" class="image">';
-            // echo '<img src="'.$this->homePath.'graphics/movies/'.$image.'" width="100%">';
-            echo '<div class="numbertext ">'.$i.' / 6</div>';
+            echo '<a href="movieCheck/index.php?id='.$i.'">';
+            echo '<div style="width:100%; height:100%;"';
+            echo '</a>';
             echo '</td>';
         }
 

@@ -1,0 +1,22 @@
+:root {
+    --primary-color: #202020;
+    --secondary-color: #303030;
+    --hover-color: #232323;
+    --bg-color: #111111;
+    /* --font-color: #9320ff; */
+    /* --heading-color: #8400ff; */
+    --font-color: #ff4b4b;
+    --heading-color: #FF0000;
+    --font-size: medium; 
+    --hue-rotate: hue-rotate(95deg);
+    --transparent-color: #202020CC;
+    --more-transparent-color: #20202088;
+}
+
+#movieBanner {
+    width: 100%;
+    height: max-content;
+    padding: 10px 10px 10px 10px;
+    background-color: var(--primary-color);
+    text-align: center;
+}

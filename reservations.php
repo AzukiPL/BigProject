@@ -21,7 +21,8 @@
             if($_SESSION['permission'] < 5)
             header('location: login/profile.php');
         }
-        
+        $scripts->confirmation();
+        $scripts->deleteOutdatedRecords();
     ?>
 </head>
 <body>

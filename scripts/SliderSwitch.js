@@ -4,6 +4,11 @@ let slideIndex = 1;
 function plusSlides(n) {
   showSlides(slideIndex += n);
 }
+function starttimeout() {
+  let n = 1;
+  showSlides(slideIndex += n);
+  setTimeout(starttimeout,6000);
+}
 
 // Thumbnail image controls
 function currentSlide(n) {
