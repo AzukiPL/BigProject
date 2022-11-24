@@ -122,7 +122,6 @@
     float: left;
     width: 238px;
     height: 119px;
-
   }
   .column img {
     width: 100%;
@@ -153,7 +152,7 @@
   /*----------------------------------------------------------------- Sliders -------------------------------------------------------*/
   .emptyZone {
     position: static;
-    height: 130px;
+    height: 170px;
     width: 100%;
   }
   .tagScrollMenu {

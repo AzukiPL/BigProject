@@ -12,7 +12,7 @@
         $header->load(); 
         $sesLoad = new SessionLoad("../");
         session_destroy();
-        header('location: index.php');
+        header('location: ../index.php');
     ?>
 </head>
 <body>
