@@ -27,7 +27,7 @@
         $result = mysqli_query($connect,$query);
         while($row = mysqli_fetch_array($result)) {
             $availableSpace = $row['available_space'] - $row['sold_fares'];
-            echo $availableSpace;
+            echo "Available $availableSpace seats";
         }
     ?>
     <div id="panel">
@@ -48,11 +48,11 @@
                     </tr>
                     <tr>
                         <td>Full-fare (20 PLN):  </td>
-                        <td><input type="number" min="1"  max="<?php echo $availableSpace ?>" maxlength="3" name="normalTicket" placeholder="Input Amount" required></td>
+                        <td><input type="number" min="1"  max="<?php echo $availableSpace/2 ?>" maxlength="3" name="normalTicket" placeholder="Input Amount" required></td>
                     </tr>
                     <tr>
                         <td>Reduced-fare (15 PLN): </td>
-                        <td><input type="number" min="0"  max="<?php echo $availableSpace ?>" maxlength="3" name="reducedTicket" placeholder="Input Amount"></td>
+                        <td><input type="number" min="0"  max="<?php echo $availableSpace/2 ?>" maxlength="3" name="reducedTicket" placeholder="Input Amount"></td>
                     </tr>
                     <td>Payment Method</td>
                     <td>
