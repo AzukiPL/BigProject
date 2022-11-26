@@ -1,0 +1,111 @@
+:root {
+    --primary-color: #202020;
+    --secondary-color: #303030;
+    --hover-color: #232323;
+    --bg-color: #111111;
+    /* --font-color: #9320ff; */
+    /* --heading-color: #8400ff; */
+    --font-color: #ff4b4b;
+    --heading-color: #FF0000;
+    --font-size: medium; 
+    --hue-rotate: hue-rotate(95deg);
+    --transparent-color: #202020CC;
+    --more-transparent-color: #20202088;
+  
+}
+
+#genreSelect {
+    width: 100%;
+    height: max-content;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color:var(--primary-color);
+    overflow-y: scroll;
+    border-bottom: 1px solid var(--heading-color);
+    border-radius: 1%;
+}
+.genreCheckbox {
+    position: relative;
+    left: 10%;
+    float: left;
+    display: block;
+    width: 20%;
+    text-align: left;
+}
+#check {
+    width: 100%;
+    clear: both;
+    text-align: center;
+}
+#check input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 30px;
+    width: 50%;
+    border-radius: 20px;
+}
+#check input:hover {
+    background-color: var(--hover-color);
+    cursor: pointer;
+}
+
+.checkbox {
+    position: static;
+    display: inline-block;
+    left: 0px;
+    height: 15px;
+    width: 15px;
+    background-color: var(--secondary-color);
+    border: 1px solid var(--heading-color);
+    border-radius: 50%;
+  }
+  
+  label:hover input ~ .checkbox {
+    background-color: var(--font-color);
+    border: 1px solid var(--hover-color);
+  }
+  
+  label input:checked ~ .checkbox {
+    background-color: var(--heading-color);
+    border: 1px solid var(--hover-color);
+  }
+  
+  .checkbox:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  label input:checked ~ .checkbox:after {
+    display: block;
+  }
+  
+  label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  label {
+    position: relative;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+  }
+/* --------------------------------------------------------------BOTTOM -------------------------------------------------- */
+
+#selectedGenreMovies {
+    width: 100%;
+    margin-top: 20px;
+    height: 500px;
+    background-color: var(--primary-color);
+}
+#selectedGenres {
+    width: inherit;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: var(--secondary-color);
+}
+#selectedGenres p {
+    margin-left: 10px;
+}

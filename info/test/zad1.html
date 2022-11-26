@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function nazwaFunkcji1() {
+            let tlo = document.getElementById('tlo');
+            tlo.style.backgroundColor = "red";
+        }
+        function nazwaFunkcji2() {
+            let tlo = document.getElementById('tlo');
+            tlo.style.color = "white";
+        }
+        function nazwaFunkcji3() {
+            let tlo = document.getElementById('tlo');
+            tlo.style.color = "blue";
+            tlo.style.backgroundColor = "yellow";
+
+        }
+
+    </script>
+</head>
+<body id="tlo">
+    <button id="1" onmouseover="nazwaFunkcji1();">P1</button>
+    <button id="2" onmouseleave="nazwaFunkcji2();">P2</button>
+    <button id="3" onclick="nazwaFunkcji3();">P3</button>
+    <p id="text">text</p>
+</body>
+</html>

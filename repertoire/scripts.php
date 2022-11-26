@@ -113,7 +113,7 @@
             $resultGenres = mysqli_query($connect,$queryGenres);
             echo '<div class="repertoire-movie-tag">';
             while ($row2 = mysqli_fetch_array($resultGenres)) {
-                echo '<div class="repertoire-genre">'.$row2['genre'].'</div>';
+                echo '<a href="../genres/index.php?genre%5B'.$row2['genre'].'%5D='.$row2['genre'].'"><div class="repertoire-genre">'.$row2['genre'].'</div></a>';
             }
             echo '</div>';
         }
@@ -125,19 +125,19 @@
             $result = mysqli_query($connect,$query);
             echo '<div class="time"">';
             while($row = mysqli_fetch_array($result)) {
-                echo '<form action="tickets/index.php" method="post">' ;
+                echo '<form action="tickets/index.php" method="post" class="noselect">' ;
                 echo '<select style="display:none; visibility:hidden;" name="movie-name"><option value="'.$row['movie_name'].'"></option></select>';
                 echo '<select style="display:none; visibility:hidden;" name="movie-time"><option value="'.$row['time'].'"></option></select>';
                 echo '<select style="display:none; visibility:hidden;" name="id"><option value="'.$row['id'].'"></option></select>';
                 echo '<select type="text" style="display:none; visibility:hidden;" name="localisation"><option value="'.$cinemaLocalisation.'"></option></select>';
-                echo '<input type="submit" class="repertoire-time noselect" value="'.$row['2d/3d'].' | At: '.$row['time'].'"></option></select>'; 
+                echo '<input type="submit" class="repertoire-time" value="'.$row['2d/3d'].' | At: '.$row['time'].'"></option>'; 
                 echo '</form>';
             }
             $query = "SELECT *, `movies`.`name` AS 'movie_name' FROM `repertoire`, `movies`, `rooms` WHERE `repertoire`.`movie_id` = `movies`.`id` AND `repertoire`.`movie_id` = $movie_id AND `repertoire`.`date` = '$repertoireDate' AND `repertoire`.`localisation_id` = $cinemaLocalisation AND `repertoire`.`sold_fares` >= `rooms`.`available_space` AND `repertoire`.`room_id` = `rooms`.`id`  ORDER BY `repertoire`.`time` DESC LIMIT 5;";
             $result = mysqli_query($connect,$query);
             
             while($row = mysqli_fetch_array($result)) {
-                echo '<input type="submit" class="repertoire-time noselect" value="'.$row['time'].' SOLD"></option></select>'; 
+                echo '<input type="submit" class="repertoire-time sold" value="'.$row['2d/3d'].' | At: '.$row['time'].' SOLD OUT"></option>'; 
             }
             echo '</div>';
         } 
