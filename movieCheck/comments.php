@@ -24,7 +24,7 @@
                     echo '<div id="commentinput">';
                     echo '<form action="" method="GET">';
                     echo '<input type="text" value="'.$this->movie_id.'" name="id" style="display:none;">';
-                    echo '<input type="text" placeholder="Join Conversation" maxlength="125" autocomplete="off" name="comment">';
+                    echo '<input type="text" placeholder="Join Conversation" maxlength="125" name="comment">';
                     echo '<input type="submit" value="Send">';
                     echo '</form>';
                     echo '</div>';
@@ -32,7 +32,7 @@
             }
             else {
                 echo '<div id="commentinput">';
-                echo '<a href="../login/index.php">Log in to leave a comment</a>';
+                echo '<a href="../login/index.php">Log in to leave comment</a>';
                 echo '</div>';
             }
         }

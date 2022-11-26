@@ -144,19 +144,11 @@
     border: 1px solid var(--heading-color);
     border-radius: 20px;
     margin: 5px;
-    padding: 5px 5px 5px 5px;    
-    width: max-content;
+    padding: 5px;
+    min-width: 60px;
     float: left;
-    color: var(--heading-color);
+    color: var(--font-color);
   }
-  .tag:hover, .show-more:hover {
-    background-color: var(--heading-color);
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    cursor: pointer;
-  }
-
-
   /*----------------------------------------------------------------- Sliders -------------------------------------------------------*/
   .emptyZone {
     position: static;
@@ -177,7 +169,7 @@
     width: inherit;
     height: 50px;
     background-color: var(--secondary-color);
-    color: var(--heading-color);
+    color: var(--font-color);
     text-align: left;
     padding-left: 10px;
 

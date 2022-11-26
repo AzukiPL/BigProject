@@ -21,7 +21,7 @@
 
         private function openScrollableMenu() {
             echo '<div class="tagScrollMenu">';
-            echo '<div class="tagName"><a href="genres/index.php?genre%5B'.$this->tag.'%5D='.$this->tag.'""><div class="tag">'.$this->tag.'</div></a></div>';
+            echo '<div class="tagName">'.$this->tag.'</div>';
             echo '<div class="tagMovieContainer">';
             echo '<table><tr>';
         }

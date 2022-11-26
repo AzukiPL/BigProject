@@ -125,7 +125,7 @@
             $result = mysqli_query($connect, $query);
             while ($row = mysqli_fetch_array($result))
             {
-                echo '<a href="genres/index.php?genre%5B'.$row['genre'].'%5D='.$row['genre'].'"><div class="tag">'.$row['genre'].'</div></a>';
+                echo '<div class="tag">'.$row['genre'].'</div>';
             }
         }
 
