@@ -21,15 +21,6 @@
         <div id="repertoire-header">
             <h1>Repertoire</h1>
         </div>
-        <div id=repertoire-days class="noselect">
-            <div class="repertoire-day repertoire-active" onclick="currentSlide(1)"><?php $scripts->setCorrentDay(0); ?></div>
-            <div class="repertoire-day" onclick="currentSlide(2)"><?php $scripts->setCorrentDay(1); ?></div>
-            <div class="repertoire-day" onclick="currentSlide(3)"><?php $scripts->setCorrentDay(2); ?></div>
-            <div class="repertoire-day" onclick="currentSlide(4)"><?php $scripts->setCorrentDay(3); ?></div>
-            <div class="repertoire-day" onclick="currentSlide(5)"><?php $scripts->setCorrentDay(4); ?></div>
-            <div class="repertoire-day" onclick="currentSlide(6)"><?php $scripts->setCorrentDay(5); ?></div>
-            <div class="repertoire-day" onclick="currentSlide(7)"><?php $scripts->setCorrentDay(6); ?></div>
-        </div>
         <form id="localisation" action="" method="GET">
             <div class="element">Select Localisation:</div>
             <div class="element1">
@@ -39,7 +30,9 @@
                 <input type="submit" value="Select">
             </div>
         </form>
+        <?php $scripts->setDayButtons(); ?>
     </div>
+    
     <div id="repertoire-bottom">
         <div class="repertoireList" style="display: block;"><?php $scripts->setRepertoireList(0); ?></div>
         <div class="repertoireList"><?php $scripts->setRepertoireList(1); ?></div>
