@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProjectCinema</title>
+    <title>Project Cinema</title>
     <link rel="stylesheet" href="tickets.css">
 </head>
 <body>
@@ -23,10 +23,11 @@
             $street = $row['street'];
             $local = $row['local'];
         }
-        $query = 'SELECT * FROM `repertoire`, `rooms`, `movies` WHERE `repertoire`.`movie_id` = `movies`.`id` AND `repertoire`.`room_id` = `rooms`.`id` AND `movies`.`name` = "'.$movieName.'";';
+        $query = 'SELECT * FROM `repertoire`, `rooms`, `movies` WHERE `repertoire`.`movie_id` = `movies`.`id` AND `repertoire`.`room_id` = `rooms`.`id` AND `repertoire`.`id` = '.$repertoireId.' AND `movies`.`name` = "'.$movieName.'";';
         $result = mysqli_query($connect,$query);
         while($row = mysqli_fetch_array($result)) {
             $availableSpace = $row['available_space'] - $row['sold_fares'];
+            echo $availableSpace;
         }
     ?>
     <div id="panel">
