@@ -133,22 +133,6 @@
             echo '</div>';
         } 
 
-        public function setDayButtons() {
-            if(!empty($_GET['localisation'])) { 
-                ?>
-                    <div id=repertoire-days class="noselect">
-                        <div class="repertoire-day repertoire-active" onclick="currentSlide(1)"><?php $this->setCorrentDay(0); ?></div>
-                        <div class="repertoire-day" onclick="currentSlide(2)"><?php $this->setCorrentDay(1); ?></div>
-                        <div class="repertoire-day" onclick="currentSlide(3)"><?php $this->setCorrentDay(2); ?></div>
-                        <div class="repertoire-day" onclick="currentSlide(4)"><?php $this->setCorrentDay(3); ?></div>
-                        <div class="repertoire-day" onclick="currentSlide(5)"><?php $this->setCorrentDay(4); ?></div>
-                        <div class="repertoire-day" onclick="currentSlide(6)"><?php $this->setCorrentDay(5); ?></div>
-                        <div class="repertoire-day" onclick="currentSlide(7)"><?php $this->setCorrentDay(6); ?></div>
-                    </div>
-                <?php
-            }
-        }
-
     }
 
 ?>
