@@ -128,7 +128,7 @@
             $result = mysqli_query($connect,$query);
             
             while($row = mysqli_fetch_array($result)) {
-                echo '<input type="submit" class="repertoire-time2 noselect" value="'.$row['time'].' SOLD OUT"></option></select>'; 
+                echo '<input type="submit" class="repertoire-time2 noselect" value="'.$row['time'].' SOLD"></option></select>'; 
             }
             echo '</div>';
         } 
