@@ -181,8 +181,15 @@
     padding-top: 5px;
     padding-bottom: 5px;
     border-radius: 20px;
+    color: var(--heading-color);
     border: 1px solid var(--heading-color);
-    background-color: var(--transparent-color);
+    background-color: var(--secondary-color);
+}
+.repertoire-genre:hover {
+    background-color: var(--heading-color);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    cursor: pointer;
 }
 .repertoire-genre::after {
     clear: both;
@@ -205,9 +212,11 @@
 
 
 .repertoire-time {
-    background-color: var(--transparent-color);
-    color: var(--font-color); 
-    width: 30%;
+    background-color: var(--secondary-color);
+    color: var(--heading-color);
+    width: max-content;
+    padding-left: 5px;
+    padding-right: 5px;
     padding-top: 15px;
     padding-bottom: 15px;
     border-radius: 50px;
@@ -217,12 +226,17 @@
     margin-top: 5px;
     float: left;
     overflow: auto;
+    text-decoration: underline;
+}
+.sold {
+    text-decoration:line-through;
+    width: 70%;
 }
 .time {
     position: relative;
     top: 100px;
     left: 30px;
-    width: 30%;
+    width: 40%;
     height: 200px;
     overflow: auto;
 }
@@ -230,7 +244,9 @@
     clear: both;
 }
 .repertoire-time:hover {
-    background-color: var(--primary-color);
+    background-color: var(--heading-color);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
     cursor: pointer;
 }
 .repertoire-trailer {

@@ -16,13 +16,13 @@
     <?php 
         $header->loadSliderSwitch(); 
         echo '<div class="emptyZone"></div>';
-        $header->loadScroller("anime");
-        $header->loadScroller("action");
-        $header->loadScroller("romance");
-        $header->loadScroller("horror");
-        $header->loadScroller("historical");
-        $header->loadScroller("comedy");
-        $header->loadScroller("fantasy");
+        $header->loadScroller("Anime");
+        $header->loadScroller("Action");
+        $header->loadScroller("Romance");
+        $header->loadScroller("Horror");
+        $header->loadScroller("Historical");
+        $header->loadScroller("Comedy");
+        $header->loadScroller("Fantasy");
         $sesLoad->onLoad();
     ?>
     <!-- <script>addMenu();</script> -->
