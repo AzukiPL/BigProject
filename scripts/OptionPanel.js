@@ -48,8 +48,8 @@ class OptionPanel {
         document.write('<option value="dark-red">Dark-Red</option>');
         document.write('<option value="dark-violet">Dark-Violet</option>');
         document.write('<option value="light">Light</option>');
-        document.write('<option value="dark-contrast">dark contrast</option>');
-        document.write('<option value="light-contrast">light contrast</option>');
+        // document.write('<option value="dark-contrast">dark contrast</option>');
+        // document.write('<option value="light-contrast">light contrast</option>');
         document.write('</select><br>');
     }
     

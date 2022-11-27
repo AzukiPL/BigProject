@@ -44,6 +44,7 @@
     </div>
 
     <?php 
+        $header->loadFooter();
         $sesLoad->onLoad();
     ?>
 </body>

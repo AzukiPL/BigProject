@@ -27,20 +27,6 @@
                 }
             }
         }
-        public function writeCurrentDay($plusDays) {
-            while(date("w")+$plusDays > 7) {
-                $plusDays -= 7;
-            }
-            switch(date("w")+$plusDays) {
-                case 1: return "Monday"; break;
-                case 2: return "Tuesday"; break;
-                case 3: return "Wednesday"; break;
-                case 4: return "Thursday"; break;
-                case 5: return "Friday"; break;
-                case 6: return "Saturday"; break;
-                case 7: return "Sunday"; break;
-            }
-        }
         public function setSelectLocalisation() {
             $connect = mysqli_connect("localhost","ProjectCinema","zaq1@WSX","projectcinema");
             $query = "SELECT * FROM `localisations`";
@@ -75,7 +61,7 @@
                 $connect = mysqli_connect("localhost", "ProjectCinema", "zaq1@WSX", "projectcinema");
                 $query = 'SELECT DISTINCT `repertoire`.`movie_id` AS "unique_id" FROM `repertoire`, `movies`, `rooms` WHERE `repertoire`.`date` = "'.$today.'" AND `movies`.`id` = `repertoire`.`movie_id` AND `repertoire`.`localisation_id` = '.$localisation.' AND `repertoire`.`sold_fares` < `rooms`.`available_space` AND `repertoire`.`room_id` = `rooms`.`id` ORDER BY `repertoire`.`time`;';
                 $result = mysqli_query($connect,$query);
-                echo '<div class="repertoire-date">'.$this->writeCurrentDay($plusDays).' '.$today.'</div>';
+                echo '<div class="repertoire-date">'.$today.'</div>';
                 if(!mysqli_fetch_array($result)) { echo '<div class="repertoire-date"> no repertoire planned for this day. </div>';}
                 else {
                     mysqli_data_seek($result,0);
@@ -109,7 +95,7 @@
             echo '<div class="repertoire-movie-title">'.$name.'</div>';
         }
         private function setGenres($connect,$movie_id) {
-            $queryGenres = 'SELECT * FROM `movies`,`genres` WHERE `genres`.`movie_id` = '.$movie_id.' AND `movies`.id = '.$movie_id.' ORDER BY `genres`.`priority` DESC LIMIT 4;';
+            $queryGenres = 'SELECT * FROM `movies`,`genres` WHERE `genres`.`movie_id` = '.$movie_id.' AND `movies`.id = '.$movie_id.' ORDER BY `genres`.`genre` ASC LIMIT 4;';
             $resultGenres = mysqli_query($connect,$queryGenres);
             echo '<div class="repertoire-movie-tag">';
             while ($row2 = mysqli_fetch_array($resultGenres)) {

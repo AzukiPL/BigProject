@@ -21,46 +21,69 @@
             header('location: login/profile.php');
         }
         $movies = new AddMovieScripts("");
-
+        $connect = mysqli_connect("localhost","ProjectCinema", "zaq1@WSX", "projectcinema");
 
     ?>
 </head>
 <body>
 <div class="loginForm"> 
-    <form  action="" method="POST" enctype="multipart/form-data">
+    <form  action="" method="POST">
         <table>
             <tr>
                 <td>Movie Name: </td>
-                <td><input type="text" name="movie-name" autocomplete="off" required></td>
+                <td><input type="text" placeholder="name" name="movie-name" autocomplete="off" required></td>
+                <td rowspan="2" >
+                    Genres (Choose all that applies)
+                </td>
             </tr>
             <tr>
                 <td>Movie Length</td>
-                <td><input type="text" name="length" autocomplete="off" required></td>
+                <td><input type="text" placeholder="length"  name="length" autocomplete="off" required></td>
+
             </tr>
             <tr>
                 <td colspan="2">
-                    <input type="checkbox" value="addDirector" name="addDirector" onclick="isChecked();">Add Director<br>
+                    <input type="checkbox"  value="addDirector" name="addDirector" onclick="isChecked();">Add Director<br>
+                </td>
+                
+                <td rowspan="10" >
+                    <?php $movies->readMovieGenres($connect); ?>
                 </td>
             </tr>
             <tr class="addDirector">
-                <td>director name</td>        
-                <td><input type="text" name="director-name"></td>   
+                <td>Director Name</td>        
+                <td><input  type="text" placeholder="name" name="director-name"></td>   
             </tr>
             <tr class="addDirector">
-                <td>director surname</td>        
-                <td><input type="text" name="director-surname"></td>   
+                <td>Director Surname</td>        
+                <td><input  type="text" placeholder="surname"  name="director-surname"></td>   
             </tr>
             <tr class="selectDirector">
                 <td>Director: </td>
                 <td>    
-                    <select name="" id="">
+                    <select name="Director" id="">
                     <?php $movies->selectDirector(); ?>
                     </select>
                 </td>
             </tr>
             <tr>
+                <td><label>Select Image</label></td>
+                <td>
+                    <input type="file" value="" name="Image" >
+                </td>
+            </tr>
+            <tr>
+                <td><label>Select Trailer</label></td>
+                <td>
+                    <input type="file" value="" name="Trailer">
+                </td>
+            </tr>
+            <tr>
+                <td>Description</td>
+            </tr>
+            <tr>
                 <td colspan="2">
-                    <input type="file" name="fileToUpload" id="fileToUpload">
+                    <input type="text" name="description" placeholder="Description" required>
                 </td>
             </tr>
             <tr>
@@ -70,11 +93,8 @@
     </form>
     </div>
     <?php 
-    $movies->upload();
-    if(!empty($_POST['movie-image'])) {
-        $movieImg = $_POST['movie-image'];
-        echo $movieImg;
-    }
+    $movies->upload($connect);
+        mysqli_close($connect);
         $sesLoad->onLoad();
     ?>
 </body>

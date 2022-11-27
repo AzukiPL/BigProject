@@ -86,13 +86,13 @@
                         echo '<td>Room</td>';
                         echo '<td>Action</td>';
                         echo '</tr>';
-                        echo'<tr><td colspan="5" class="day-change">'.$scripts->writeCurrentDay($d).' '.$row['date'].'</td><td class="day-change"><a href="addRepertoire.php?repertoireDate='.$row['date'].'">Delete '.$row['date'].'</a></td></tr>'; 
+                        echo'<tr><td colspan="5" class="day-change">'.$row['date'].'</td><td class="day-change"><a href="addRepertoire.php?repertoireDate='.$row['date'].'">Delete '.$row['date'].'</a></td></tr>'; 
                         $d++;
                     }
                 $date[$i] = $row['date'];
                 
                 if($date[$i] != $date[$z]) {
-                    echo'<tr><td colspan="5" class="day-change">'.$scripts->writeCurrentDay($d).' '.$row['date'].'</td><td class="day-change"><a href="addRepertoire.php?repertoireDate='.$row['date'].'">Delete '.$row['date'].'</a></td></tr>';
+                    echo'<tr><td colspan="5" class="day-change">'.$row['date'].'</td><td class="day-change"><a href="addRepertoire.php?repertoireDate='.$row['date'].'">Delete '.$row['date'].'</a></td></tr>';
                     $d++;
                 }
                 $z = $i;

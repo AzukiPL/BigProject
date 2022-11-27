@@ -31,6 +31,7 @@
     <?php
         $scriptsGenres->setGenreSelect();
         mysqli_close($connect);
+        $header->loadFooter();
         $sesLoad->onLoad();
     ?>
 </body>

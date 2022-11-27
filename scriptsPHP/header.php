@@ -15,6 +15,7 @@
             echo '<script lang="JavaScript" src="'.$this->homePath.'scripts/main.js"></script>';
             echo '<script>getData("'.$this->homePath.'");</script>';
             include_once('sessionLoad.php');
+            
         }
         public function loadSliderSwitch() {
             echo '<script lang="JavaScript" src="'.$this->homePath.'scripts/SliderSwitch.js"></script>';
@@ -26,6 +27,11 @@
             include_once('slider.php');
             $scroller = new Slider($this->homePath, $tagName);
             $scroller->setTagSlide();
+        }
+        public function loadFooter() {
+            include_once('footer.php'); 
+            $footer = new footer($this->homePath);
+            $footer->createFooter();
         }
     }
 ?>

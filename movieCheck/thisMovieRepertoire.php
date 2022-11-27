@@ -100,7 +100,7 @@
             echo '<div class="repertoire-movie-title">'.$name.'</div>';
         }
         private function setGenres($connect,$movie_id) {
-            $queryGenres = 'SELECT * FROM `movies`,`genres` WHERE `genres`.`movie_id` = '.$movie_id.' AND `movies`.id = '.$movie_id.' ORDER BY `genres`.`priority` DESC LIMIT 4;';
+            $queryGenres = 'SELECT * FROM `movies`,`genres` WHERE `genres`.`movie_id` = '.$movie_id.' AND `movies`.id = '.$movie_id.' ORDER BY `genres`.`genre` ASC LIMIT 4;';
             $resultGenres = mysqli_query($connect,$queryGenres);
             echo '<div class="repertoire-movie-tag">';
             while ($row2 = mysqli_fetch_array($resultGenres)) {

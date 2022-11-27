@@ -14,58 +14,73 @@
             }
             mysqli_close($connect);
         }
-
-        function upload() {
-            if(!empty($_POST['fileToUpload'])) {
-                $target_dir = $this->homePath.'graphics/movies/';
-                $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-                $uploadOk = 1;
-                $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-                
-                // Check if image file is a actual image or fake image
-                if(isset($_POST["submit"])) {
-                $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-                if($check !== false) {
-                    echo "File is an image - " . $check["mime"] . ".";
-                    $uploadOk = 1;
-                } else {
-                    echo "File is not an image.";
-                    $uploadOk = 0;
-                }
-                }
-                
-                // Check if file already exists
-                if (file_exists($target_file)) {
-                echo "Sorry, file already exists.";
-                $uploadOk = 0;
-                }
-                
-                // Check file size
-                if ($_FILES["fileToUpload"]["size"] > 500000) {
-                echo "Sorry, your file is too large.";
-                $uploadOk = 0;
-                }
-                
-                // Allow certain file formats
-                if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-                && $imageFileType != "gif" ) {
-                echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-                $uploadOk = 0;
-                }
-                
-                // Check if $uploadOk is set to 0 by an error
-                if ($uploadOk == 0) {
-                echo "Sorry, your file was not uploaded.";
-                // if everything is ok, try to upload file
-                } else {
-                if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                    echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-                } else {
-                    echo "Sorry, there was an error uploading your file.";
-                }
-    
-                }
+        function readMovieGenres($connect) {
+            $query = "SELECT DISTINCT `genres`.`genre` FROM `genres`";
+            $result = mysqli_query($connect,$query);
+            while($row = mysqli_fetch_array($result)) {
+                echo '<div class="genre">';
+                echo '<input type="checkbox" name="genre['.$row['genre'].']" value="'.$row['genre'].'">'.$row['genre'];
+                echo '</div>';
             }
-          }
+        }
+
+        function upload($connect) {
+            if(!empty ($_POST['movie-name'])) {
+                if(!empty($_POST['addDirector'])) {
+                    if(!empty($_POST['director-name']) && !empty($_POST['director-surname'])) {
+                        $name = $_POST['director-name'];
+                        $surname = $_POST['director-surname'];
+                        $query = "INSERT INTO `directors` (`name`,`surname`) VALUES ('$name', '$surname');";
+                        $result = mysqli_query($connect,$query);
+
+                        $read = "SELECT * FROM `directors` WHERE `name` = '$name' AND `surname` = '$surname'";
+                        $output = mysqli_query($connect,$read);
+                        $row = mysqli_fetch_array($output);
+                        $movieDirector = $row['id'];
+                    }
+                    else {
+                        echo 'define director.';
+                        return;
+                    }
+                }
+                else {
+                    $movieDirector = $_POST['Director'];
+                }
+                $movieGenres = $_POST['genre'];
+                $movieName          = $_POST['movie-name'];
+                $movieLength        = $_POST['length'];
+                $movieImage         = $_POST['Image'];
+                $movieTrailer       = $_POST['Trailer'];
+                $movieDescription   = $_POST['description'];
+
+                $check = "SELECT * FROM `movies` WHERE `movies`.`name` = '$movieName' AND `movies`.`image` = '$movieImage'";
+                $checkResult = mysqli_query($connect,$check);
+                if(!mysqli_fetch_array($checkResult)) {
+                    $insert = 'INSERT INTO `movies` (`name`, `length`, `director_id`, `image`, `trailer`, `description`) VALUES ("'.$movieName.'","'.$movieLength.'","'.$movieDirector.'","'.$movieImage.'","'.$movieTrailer.'","'.$movieDescription.'")';
+                    $insertResult = mysqli_query($connect,$insert);
+                    echo "Successfully added: '$movieName','$movieLength','$movieDirector','$movieImage','$movieTrailer','$movieDescription'";
+                    
+                    $searchMovie = "SELECT * FROM `movies` WHERE `movies`.`name` = '$movieName' AND `movies`.`image` = '$movieImage'";
+                    $resultSearch = mysqli_query($connect,$searchMovie);
+                    if(!mysqli_fetch_array($resultSearch)) {echo 'error';}
+                    else {
+                        mysqli_data_seek($resultSearch,0);
+                        while($row=mysqli_fetch_array($resultSearch)) {
+
+                            foreach($movieGenres as &$value) {
+                                $inserGenre = "INSERT INTO `genres` (`movie_id`,`genre`) VALUES ('".$row['id']."', '".$movieGenres[$value]."');";
+                                $insertGenreQuery = mysqli_query($connect,$inserGenre);
+                            }
+
+
+                        }
+                    }
+                }
+                else {
+                    echo 'unique movie name and image name required';
+                }
+                
+            }
+        }
     }
 ?>

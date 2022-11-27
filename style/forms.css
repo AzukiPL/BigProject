@@ -26,9 +26,12 @@
     text-align: center;
     padding: 10px 10px 10px 10px;
   }
+.loginForm table {
+  border-collapse: collapse;
+}
 
 .loginForm tr td {
-    width: 120px;
+    width: 5%;
 }
 .addDirector{
     display:none;
@@ -39,4 +42,10 @@
     border-bottom:1px solid var(--heading-color);
     width: 100%;
     text-align:center;
+}
+.genre {
+  width: 40%;
+  float: left;
+  text-align: left;
+  margin-left: 20px;
 }

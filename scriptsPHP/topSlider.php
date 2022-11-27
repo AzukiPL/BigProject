@@ -121,7 +121,7 @@
 
 
         private function selectMovieGenres($connect, $id) {
-            $query = "SELECT `movies`.`id`, `genres`.`movie_id`, `genres`.`genre` FROM `movies`, `genres` WHERE  `genres`.`movie_id` = $id AND `movies`.`id` = $id ORDER BY `genres`.`priority` DESC LIMIT 5;";
+            $query = "SELECT `movies`.`id`, `genres`.`movie_id`, `genres`.`genre` FROM `movies`, `genres` WHERE  `genres`.`movie_id` = $id AND `movies`.`id` = $id ORDER BY `genres`.`genre` ASC LIMIT 5;";
             $result = mysqli_query($connect, $query);
             while ($row = mysqli_fetch_array($result))
             {

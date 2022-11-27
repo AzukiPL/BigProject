@@ -13,7 +13,6 @@
                 echo '<option value='.$row['id'].'>'.$row['name'].'</option>';
             }
             echo '</select>';
-            mysqli_close($connect);
         }
         function readRoomsList($connect) {
             $query = "SELECT * FROM `rooms` WHERE `rooms`.`localisation_id` = ".$_SESSION['cinemaLocalisation'].";";

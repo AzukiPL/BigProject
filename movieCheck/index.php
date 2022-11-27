@@ -31,7 +31,7 @@
         while($row = mysqli_fetch_array($result)) {
             $queryDirector = mysqli_query($connect,"SELECT * FROM `directors` WHERE `directors`.`id` = ".$row['director_id']);
             $director = mysqli_fetch_array($queryDirector);
-            $queryGenres = mysqli_query($connect,"SELECT * FROM `genres` WHERE `genres`.`movie_id` = ".$row['id']." ORDER BY `genres`.`priority` DESC ");
+            $queryGenres = mysqli_query($connect,"SELECT * FROM `genres` WHERE `genres`.`movie_id` = ".$row['id']." ORDER BY `genres`.`genre` ASC ");
             echo '<div id="movieName">'.$row['name'].'</div>';
             echo '<div id="movieBanner"><video height="100%" controls> <source src="../repertoire/trailers/'.$row['trailer'].'" type="video/mp4"></video></div>';
             echo '<div id="movieInformations">';
@@ -97,6 +97,7 @@
 
     <?php 
         mysqli_close($connect);
+        $header->loadFooter();
         $sesLoad->onLoad();
     ?>
 </body>

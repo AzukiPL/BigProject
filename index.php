@@ -23,7 +23,9 @@
         $header->loadScroller("Historical");
         $header->loadScroller("Comedy");
         $header->loadScroller("Fantasy");
+        $header->loadFooter();
         $sesLoad->onLoad();
+        
     ?>
     <!-- <script>addMenu();</script> -->
     <script> currentSlide(parseInt(Math.random()*5+1)); starttimeout();</script>

@@ -26,13 +26,13 @@ html[data-theme="dark-violet"] {
 }
 
 html[data-theme="light"] {
-  --primary-color: #edd9ff;
-  --secondary-color: #dbb2ff;
-  --hover-color: #f2e4ff;
-  --font-color: #9320ff;
-  --bg-color: #fbf7ff;
-  --heading-color: #8400ff;
-  --hue-rotate: hue-rotate(0deg);
+  --primary-color: #d9ddff;
+  --secondary-color: #b2c7ff;
+  --hover-color: #e4efff;
+  --font-color: #206eff;
+  --bg-color: #f7faff;
+  --heading-color: #1900ff;
+  --hue-rotate: hue-rotate(300deg);
   --transparent-color: #fbf7ffCC;
   --more-transparent-color: #fbf7ff88;
 

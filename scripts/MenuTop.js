@@ -16,7 +16,7 @@ class MenuTop {
             document.write('<table><tr><td width="50px">');
             this.#setLogoImage(); document.write('</td><td width="140px">');
             this.#setTitleText(); document.write('</td><td width="1200px">');
-            this.#setSearchBar(); document.write('</td><td width="150px">');
+            /* this.#setSearchBar(); */ document.write('</td><td width="150px">');
             this.#setLoginButton(login); 
             document.write('</td>');
             document.write('</tr></table');
@@ -25,7 +25,7 @@ class MenuTop {
             document.write('<table><tr><td width="50px">');
             this.#setLogoImage(); document.write('</td><td width="140px">');
             this.#setTitleText(); document.write('</td><td width="1200px">');
-            this.#setSearchBar(); document.write('</td><td width="105px">');
+            /* this.#setSearchBar(); */ document.write('</td><td width="105px">');
             document.write('</td><td width="45px">');
             this.#setAccountSetting();
             document.write('</td>');

@@ -284,3 +284,17 @@
     border-radius: 20px;
     cursor: pointer;
 }
+
+#footer {
+    position: relative;
+    top: 100px;
+    background-color: var(--primary-color);
+    bottom: 0px;
+    left: 0px;
+    text-align: center;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: var(--font-color);
+    border-top: 1px solid var(--heading-color);
+}

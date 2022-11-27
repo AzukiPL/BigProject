@@ -54,7 +54,11 @@
                 $this->loadMovies();
                 echo '</div>';
             }
-            else echo 'Select Genres';
+            else {
+                echo '<div id="selectedGenres"><p>';
+                echo 'Please Select Genres';
+                echo '</p></div>';
+            }
             echo '</div>';
             
         }
@@ -89,10 +93,17 @@
             unset($value);
         }
         public function loadMovies() {
-            $query = "SELECT * FROM `movies` WHERE `movies`.`id` IN ('".implode("',' ",$this->checked)."')";
+            $query = "SELECT * FROM `movies` WHERE `movies`.`id` IN ('".implode("',' ",$this->checked)."') ORDER BY `movies`.`rates`";
             $result = mysqli_query($this->connect,$query);
             while($row = mysqli_fetch_array($result)) {
-                echo $row['name']."<br>";
+                echo '<a href = "../movieCheck/index.php?id='.$row['id'].'">';
+                echo '<div class="movie" style="background-image: url(../graphics/movies/'.$row['image'].');">';
+                echo '<div class="background-info">';
+                echo '<div class="info">'.$row['name'].'</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</a>';
+
             }
         }
     }
