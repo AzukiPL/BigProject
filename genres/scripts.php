@@ -3,6 +3,8 @@
         public function __construct($connect) {
             $this->connect = $connect;
             $this->query = [];
+            $this->movies = [];
+            $this->checked = [];
         }
         public function setGenreSelect() {
             ?>
@@ -38,31 +40,59 @@
             echo '<div id="selectedGenreMovies">';
             if(!empty($_GET['genre'])) { 
                 
-                $genres = $_GET['genre'];
+                $this->query = $_GET['genre'];
                 echo '<div id="selectedGenres"><p>Results for: ';
-                echo implode(", ",$genres);
+                echo implode(", ",$this->query);
                 echo '</p></div>';
                 echo '<div id="movies">';
-                $query = "SELECT DISTINCT `genres`.`genre` FROM `genres`, `movies` WHERE `movies`.`id` = `genres`.`movie_id`";
+                $query = "SELECT * FROM `genres` WHERE `genres`.`movie_id` != 0";
                 $result = mysqli_query($this->connect,$query);
                 while($row = mysqli_fetch_array($result)) {
-                    if(!empty($genres[$row['genre']])) 
-                        $this->loadMovies($row['genre']);
+                    array_push($this->movies,$row['movie_id']);
                 }
-                echo implode(" ",$this->query);
+                $this->reduceToDistinctMovie()   ;
+                $this->loadMovies();
                 echo '</div>';
-                
             }
             else echo 'Select Genres';
             echo '</div>';
+            
         }
-        private function loadMovies($genre) {
-            $query = "SELECT `genres`.`movie_id` FROM `genres` WHERE `genres`.`genre` = '$genre' AND `genres`.`movie_id` != 0";
-            // $query = "SELECT * FROM `movies` INNER JOIN `genres` ON ";
-            // $query = "SELECT `movies`.`name` FROM `movies` UNION ALL SELECT `genres`.`genre` FROM `movies`, `genres` WHERE `genres`.`movie_id` = `movies`.`id`";
-            $result = mysqli_query($this->connect,$query) ;
-            while ($row = mysqli_fetch_array($result)) {
-                array_push($this->query,$row['movie_id']);
+        public function reduceToDistinctMovie()     {
+            // $validation = "sum(case when `genres`.`genre` = '".implode("' then 1 else 0 end) > 0 and sum(case when `genres`.`genre` = '",$this->query)."'  then 1 else 0 end) = ".sizeof($this->query);
+            // $sumCases = " having $validation";
+            $query = "SELECT `movies`.* FROM `movies`, `genres` WHERE `genres`.`movie_id` IN (".implode(", ",$this->movies).") AND `genres`.`movie_id` = `movies`.`id` GROUP BY `movies`.`id`";
+            $result = mysqli_query($this->connect,$query);
+            while($row = mysqli_fetch_array($result)) {
+                // echo $row['id']."<br><br>";
+                $this->checkTags($row['id']);
+            }
+        }
+        public function checkTags($id) {
+            
+            foreach($this->query as &$value) {
+            $validation = "`genres`.`movie_id` = $id AND `movies`.`id` = $id ORDER BY `genres`.`genre`";
+            $query = "SELECT * FROM `movies`,`genres` WHERE $validation";
+            $reuslt = mysqli_query($this->connect,$query);
+            $check = true;
+            $name = "0";
+                while($row = mysqli_fetch_array($reuslt)) {
+                    if($this->query[$value] == $row['genre']) {
+                        $check = false;
+                        $name = $row['movie_id'];
+                    }
+                }
+                if($check == true) {break;}
+                
+            }
+            array_push($this->checked, $name);
+            unset($value);
+        }
+        public function loadMovies() {
+            $query = "SELECT * FROM `movies` WHERE `movies`.`id` IN ('".implode("',' ",$this->checked)."')";
+            $result = mysqli_query($this->connect,$query);
+            while($row = mysqli_fetch_array($result)) {
+                echo $row['name']."<br>";
             }
         }
     }
